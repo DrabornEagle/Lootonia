@@ -1,0 +1,38 @@
+name: DKD Push Event Bridge Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'supabase/functions/send-push-event-bridge/**'
+      - 'supabase/config.toml'
+      - '.github/workflows/dkd_push_event_bridge_deploy.yml'
+
+jobs:
+  dkd_deploy_send_push_event_bridge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      DKD_SUPABASE_PROJECT_REF: ${{ secrets.DKD_SUPABASE_PROJECT_REF }}
+    steps:
+      - name: Dkd checkout
+        uses: actions/checkout@v4
+
+      - name: Dkd setup supabase cli
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Dkd verify function path
+        run: |
+          test -f supabase/functions/send-push-event-bridge/index.ts
+
+      - name: Dkd deploy function
+        run: |
+          supabase functions deploy send-push-event-bridge \
+            --project-ref "$DKD_SUPABASE_PROJECT_REF" \
+            --use-api

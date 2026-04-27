@@ -1,0 +1,59 @@
+name: DKD Market Pages Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'web_market/**'
+      - '.github/workflows/dkd_market_pages_deploy.yml'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: dkd-market-pages
+  cancel-in-progress: true
+
+jobs:
+  dkd_deploy_market_pages:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.dkd_deploy_step.outputs.page_url }}
+    steps:
+      - name: Dkd checkout
+        uses: actions/checkout@v4
+
+      - name: Dkd configure pages
+        uses: actions/configure-pages@v5
+
+      - name: Dkd prepare static market build
+        env:
+          DKD_WEB_SUPABASE_URL: ${{ vars.DKD_WEB_SUPABASE_URL }}
+          DKD_WEB_SUPABASE_ANON_KEY: ${{ secrets.DKD_WEB_SUPABASE_ANON_KEY }}
+        run: |
+          test -n "$DKD_WEB_SUPABASE_URL"
+          test -n "$DKD_WEB_SUPABASE_ANON_KEY"
+          rm -rf .dkd_market_pages_build
+          mkdir -p .dkd_market_pages_build
+          cp -R web_market/. .dkd_market_pages_build/
+          cat > .dkd_market_pages_build/dkd_market_web_config.js <<DKD_EOF
+          window.dkd_market_web_config = {
+            dkd_supabase_url: "$DKD_WEB_SUPABASE_URL",
+            dkd_supabase_anon_key: "$DKD_WEB_SUPABASE_ANON_KEY"
+          };
+          DKD_EOF
+          touch .dkd_market_pages_build/.nojekyll
+
+      - name: Dkd upload pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./.dkd_market_pages_build
+
+      - name: Dkd deploy pages
+        id: dkd_deploy_step
+        uses: actions/deploy-pages@v4

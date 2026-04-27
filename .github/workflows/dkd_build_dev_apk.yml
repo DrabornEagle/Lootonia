@@ -1,0 +1,76 @@
+name: DKD-Build DEV-APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'app.json'
+      - 'eas.json'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'google-services.json'
+      - 'assets/**'
+      - 'src/**'
+      - '.github/workflows/dkd_build_dev_apk.yml'
+
+concurrency:
+  group: dkd-build-dev-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  dkd_build_dev_apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      EXPO_NO_TELEMETRY: '1'
+      CI: '1'
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+      ANDROID_HOME: /usr/local/lib/android/sdk
+
+    steps:
+      - name: Dkd checkout
+        uses: actions/checkout@v4
+
+      - name: Dkd setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Dkd setup java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Dkd prepare android sdk
+        shell: bash
+        run: |
+          mkdir -p "$ANDROID_SDK_ROOT/cmdline-tools"
+          export PATH="$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools:$PATH"
+          yes | sdkmanager --licenses || true
+          sdkmanager --install \
+            "platform-tools" \
+            "platforms;android-35" \
+            "build-tools;35.0.0"
+
+      - name: Dkd install npm packages
+        run: npm ci
+
+      - name: Dkd generate android project
+        run: npx expo prebuild --platform android --clean --non-interactive
+
+      - name: Dkd build dev apk
+        run: |
+          cd android
+          ./gradlew :app:assembleDebugOptimized --no-daemon
+
+      - name: Dkd upload dev apk artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lootonia-dkd-dev-apk
+          path: android/app/build/outputs/apk/**/*.apk
+          retention-days: 7

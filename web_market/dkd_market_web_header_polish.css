@@ -1,0 +1,238 @@
+/* DKD Lootonia Web header hızlı menü + modern logo polish */
+.dkd_market_header {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.dkd_market_brand_block {
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.dkd_market_header_badges {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  margin-left: auto !important;
+}
+
+.dkd_market_header_badges .dkd_market_header_badge,
+.dkd_market_header_badges .dkd_market_header_badge_button {
+  flex: 0 0 auto !important;
+}
+
+.dkd_market_quick_menu_button,
+.dkd_market_quick_menu_button_pinned_right {
+  order: 99 !important;
+  margin-left: 0 !important;
+  flex: 0 0 auto !important;
+  align-self: center !important;
+}
+
+.dkd_market_logo_tile_modern {
+  display: grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(151, 255, 234, 0.36), transparent 25%),
+    radial-gradient(circle at 74% 80%, rgba(117, 99, 255, 0.3), transparent 34%),
+    linear-gradient(150deg, rgba(15, 57, 132, 0.98), rgba(7, 16, 47, 0.98)) !important;
+  border: 1px solid rgba(147, 229, 255, 0.34) !important;
+  box-shadow:
+    0 20px 46px rgba(0, 0, 0, 0.38),
+    0 0 34px rgba(88, 222, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+.dkd_market_logo_tile_modern::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 8px !important;
+  border-radius: inherit !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 48%, rgba(124, 255, 232, 0.12)) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.dkd_market_logo_tile_modern::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 64% !important;
+  height: 64% !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(137, 234, 255, 0.2) !important;
+  transform: rotate(45deg) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.dkd_market_logo_svg_modern {
+  width: 82% !important;
+  height: 82% !important;
+  position: relative !important;
+  z-index: 1 !important;
+  display: block !important;
+  filter: drop-shadow(0 0 18px rgba(117, 239, 255, 0.24)) !important;
+}
+
+.dkd_market_logo_tile_modern .dkd_market_logo_wing_left,
+.dkd_market_logo_tile_modern .dkd_market_logo_wing_right {
+  transform-origin: 48px 48px !important;
+}
+
+@media (max-width: 760px) {
+  .dkd_market_header {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 8px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .dkd_market_brand_block {
+    gap: 9px !important;
+    max-width: calc(100vw - 236px) !important;
+  }
+
+  .dkd_market_logo_tile,
+  .dkd_market_logo_tile_modern {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    border-radius: 18px !important;
+  }
+
+  .dkd_market_brand_name {
+    font-size: clamp(1.42rem, 7vw, 2.05rem) !important;
+    letter-spacing: 0.075em !important;
+    max-width: 154px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+  }
+
+  .dkd_market_brand_subname {
+    margin-top: 3px !important;
+    font-size: 0.84rem !important;
+    letter-spacing: 0.13em !important;
+    white-space: nowrap !important;
+  }
+
+  .dkd_market_header_badges {
+    gap: 5px !important;
+  }
+
+  .dkd_market_header_badges .dkd_market_header_badge,
+  .dkd_market_header_badges .dkd_market_header_badge_button {
+    min-width: 76px !important;
+    max-width: 88px !important;
+    min-height: 48px !important;
+    padding: 7px 7px !important;
+    border-radius: 17px !important;
+    gap: 6px !important;
+  }
+
+  .dkd_market_header_badges .dkd_market_badge_icon {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+  }
+
+  .dkd_market_header_badges .dkd_market_badge_icon::before {
+    font-size: 1rem !important;
+  }
+
+  .dkd_market_header_badges .dkd_market_badge_title {
+    font-size: 0.86rem !important;
+    line-height: 0.95 !important;
+  }
+
+  .dkd_market_header_badges .dkd_market_badge_text {
+    font-size: 0.68rem !important;
+    line-height: 1.05 !important;
+    margin-top: 2px !important;
+  }
+
+  .dkd_market_quick_menu_button,
+  .dkd_market_quick_menu_button_pinned_right {
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    border-radius: 16px !important;
+  }
+
+  .dkd_market_quick_menu_lines {
+    width: 22px !important;
+    gap: 4px !important;
+  }
+
+  .dkd_market_quick_menu_lines span {
+    height: 2.6px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .dkd_market_header {
+    gap: 6px !important;
+  }
+
+  .dkd_market_brand_block {
+    max-width: calc(100vw - 222px) !important;
+  }
+
+  .dkd_market_logo_tile,
+  .dkd_market_logo_tile_modern {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    border-radius: 16px !important;
+  }
+
+  .dkd_market_brand_name {
+    font-size: 1.56rem !important;
+    max-width: 108px !important;
+  }
+
+  .dkd_market_brand_subname {
+    font-size: 0.72rem !important;
+  }
+
+  .dkd_market_header_badges .dkd_market_header_badge,
+  .dkd_market_header_badges .dkd_market_header_badge_button {
+    min-width: 68px !important;
+    max-width: 76px !important;
+    min-height: 44px !important;
+    padding: 6px !important;
+    border-radius: 15px !important;
+  }
+
+  .dkd_market_header_badges .dkd_market_badge_icon {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+  }
+
+  .dkd_market_header_badges .dkd_market_badge_title {
+    font-size: 0.77rem !important;
+  }
+
+  .dkd_market_header_badges .dkd_market_badge_text {
+    font-size: 0.62rem !important;
+  }
+
+  .dkd_market_quick_menu_button,
+  .dkd_market_quick_menu_button_pinned_right {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    border-radius: 14px !important;
+  }
+}

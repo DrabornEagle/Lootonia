@@ -1,0 +1,115 @@
+name: DKD Test APK Release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'App.js'
+      - 'app.json'
+      - 'eas.json'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'google-services.json'
+      - 'assets/**'
+      - 'src/**'
+      - '.github/workflows/dkd_test_apk.yml'
+
+concurrency:
+  group: dkd-test-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  dkd_build_test_apk:
+    name: Dkd build normal test APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    env:
+      CI: '1'
+      EXPO_NO_TELEMETRY: '1'
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+      ANDROID_HOME: /usr/local/lib/android/sdk
+      EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.EXPO_PUBLIC_SUPABASE_URL }}
+      EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}
+      EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}
+
+    steps:
+      - name: Dkd checkout
+        uses: actions/checkout@v4
+
+      - name: Dkd setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Dkd setup java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Dkd verify Supabase build env
+        shell: bash
+        run: |
+          if [ -z "${EXPO_PUBLIC_SUPABASE_URL}" ]; then
+            echo "DKD ERROR: EXPO_PUBLIC_SUPABASE_URL secret is empty."
+            exit 1
+          fi
+          if [ -z "${EXPO_PUBLIC_SUPABASE_ANON_KEY}" ]; then
+            echo "DKD ERROR: EXPO_PUBLIC_SUPABASE_ANON_KEY secret is empty."
+            exit 1
+          fi
+          if echo "${EXPO_PUBLIC_SUPABASE_URL}" | grep -q "BURAYA_"; then
+            echo "DKD ERROR: EXPO_PUBLIC_SUPABASE_URL still contains placeholder text."
+            exit 1
+          fi
+          if echo "${EXPO_PUBLIC_SUPABASE_ANON_KEY}" | grep -q "BURAYA_"; then
+            echo "DKD ERROR: EXPO_PUBLIC_SUPABASE_ANON_KEY still contains placeholder text."
+            exit 1
+          fi
+          printf 'EXPO_PUBLIC_SUPABASE_URL=%s\n' "${EXPO_PUBLIC_SUPABASE_URL}" > .env
+          printf 'EXPO_PUBLIC_SUPABASE_ANON_KEY=%s\n' "${EXPO_PUBLIC_SUPABASE_ANON_KEY}" >> .env
+          printf 'EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY=%s\n' "${EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY}" >> .env
+          cp .env .env.local
+          cp .env .env.production
+          echo "DKD Supabase URL loaded. Length: ${#EXPO_PUBLIC_SUPABASE_URL}"
+          echo "DKD Supabase key loaded. Length: ${#EXPO_PUBLIC_SUPABASE_ANON_KEY}"
+
+      - name: Dkd prepare android sdk
+        shell: bash
+        run: |
+          mkdir -p "$ANDROID_SDK_ROOT/cmdline-tools"
+          export PATH="$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools:$PATH"
+          yes | sdkmanager --licenses || true
+          sdkmanager --install \
+            "platform-tools" \
+            "platforms;android-35" \
+            "build-tools;35.0.0"
+
+      - name: Dkd install npm packages
+        run: npm ci
+
+      - name: Dkd generate android project
+        run: npx expo prebuild --platform android --clean --non-interactive
+
+      - name: Dkd build normal release test apk
+        run: |
+          cd android
+          ./gradlew :app:assembleRelease --no-daemon
+
+      - name: Dkd collect apk
+        shell: bash
+        run: |
+          mkdir -p dkd_test_apk_output
+          find android/app/build/outputs/apk -type f -name "*.apk" -print
+          cp android/app/build/outputs/apk/release/*.apk dkd_test_apk_output/Lootonia-dkd-test-release.apk
+
+      - name: Dkd upload normal test apk artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lootonia-dkd-test-release-apk
+          path: dkd_test_apk_output/Lootonia-dkd-test-release.apk
+          retention-days: 7

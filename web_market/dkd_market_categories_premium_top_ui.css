@@ -1,0 +1,74 @@
+/* dkd_20260425: Kategoriler sayfası premium/profesyonel üst alan */
+#dkd_market_categories_view,.dkd_market_categories_view,[data-dkd-view="categories"]{
+  background:radial-gradient(circle at 14% 6%,rgba(126,255,229,.20),transparent 31%),
+  radial-gradient(circle at 88% 10%,rgba(126,148,255,.18),transparent 34%),
+  radial-gradient(circle at 50% 104%,rgba(255,126,199,.10),transparent 38%),
+  linear-gradient(180deg,rgba(4,13,32,.99),rgba(3,8,24,.99))!important;
+}
+.dkd_market_categories_premium_top{
+  position:relative;isolation:isolate;overflow:hidden;border:1px solid rgba(255,255,255,.16);
+  border-radius:32px;margin:12px 0 18px;padding:22px;color:#fff;
+  background:radial-gradient(circle at 8% 8%,rgba(255,231,109,.24),transparent 30%),
+  radial-gradient(circle at 85% 12%,rgba(126,255,229,.20),transparent 32%),
+  radial-gradient(circle at 78% 88%,rgba(255,126,199,.14),transparent 38%),
+  linear-gradient(135deg,rgba(16,36,82,.96),rgba(9,18,49,.98) 52%,rgba(12,38,59,.96));
+  box-shadow:0 22px 60px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.18);
+}
+.dkd_market_categories_premium_top:before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),
+  linear-gradient(0deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:24px 24px;mask-image:linear-gradient(180deg,rgba(0,0,0,.86),transparent 85%);
+}
+.dkd_market_categories_premium_top:after{
+  content:'';position:absolute;z-index:1;inset:-80px auto auto -120px;width:240px;height:240px;border-radius:999px;
+  pointer-events:none;background:conic-gradient(from 90deg,rgba(126,255,229,.20),rgba(255,231,109,.14),rgba(255,126,199,.15),rgba(126,255,229,.20));
+  filter:blur(4px);animation:dkd_categories_premium_orbit_value 9s linear infinite;
+}
+.dkd_market_categories_premium_glow{position:absolute;z-index:0;border-radius:999px;pointer-events:none;filter:blur(18px);opacity:.70}
+.dkd_market_categories_premium_glow_one{width:120px;height:120px;right:24px;top:-28px;background:rgba(126,255,229,.28);animation:dkd_categories_premium_float_one_value 5s ease-in-out infinite}
+.dkd_market_categories_premium_glow_two{width:86px;height:86px;right:120px;bottom:-30px;background:rgba(255,126,199,.22);animation:dkd_categories_premium_float_two_value 6.5s ease-in-out infinite}
+.dkd_market_categories_premium_head{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;align-items:start;gap:16px}
+.dkd_market_categories_premium_badge{
+  display:inline-flex;width:max-content;border-radius:999px;padding:8px 12px;color:#071221;
+  background:linear-gradient(135deg,#7effe5,#ffe76d 58%,#ff8ad4);font-size:12px;font-weight:1000;letter-spacing:.10em;text-transform:uppercase;
+  box-shadow:0 12px 28px rgba(126,255,229,.16);
+}
+.dkd_market_categories_premium_head h2{margin:12px 0 0;color:#fff;font-size:clamp(32px,8.4vw,52px);line-height:.96;font-weight:1000;letter-spacing:-.06em;text-shadow:0 12px 34px rgba(0,0,0,.28)}
+.dkd_market_categories_premium_head p{max-width:560px;margin:10px 0 0;color:rgba(234,242,255,.78);font-size:15px;line-height:1.5;font-weight:700}
+.dkd_market_categories_premium_meter{display:grid;grid-template-columns:repeat(3,12px);gap:6px;align-items:end;min-height:56px;padding:12px;border-radius:20px;background:rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}
+.dkd_market_categories_premium_meter span{display:block;width:12px;border-radius:999px;background:linear-gradient(180deg,#7effe5,#ffe76d);box-shadow:0 0 16px rgba(126,255,229,.24);animation:dkd_categories_meter_value 1.65s ease-in-out infinite}
+.dkd_market_categories_premium_meter span:nth-child(1){height:20px;animation-delay:0s}.dkd_market_categories_premium_meter span:nth-child(2){height:34px;animation-delay:.16s}.dkd_market_categories_premium_meter span:nth-child(3){height:26px;animation-delay:.32s}
+.dkd_market_categories_premium_stats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}
+.dkd_market_categories_premium_stats span{border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:13px 12px;background:rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+.dkd_market_categories_premium_stats strong{display:block;color:#fff;font-size:18px;font-weight:1000;line-height:1}.dkd_market_categories_premium_stats small{display:block;margin-top:5px;color:rgba(232,241,255,.68);font-size:11px;font-weight:900}
+#dkd_market_categories_view [data-dkd-categories-action-card],.dkd_market_categories_view [data-dkd-categories-action-card],[data-dkd-view="categories"] [data-dkd-categories-action-card]{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;min-height:92px!important;border-radius:26px!important;border:1px solid rgba(255,255,255,.18)!important;
+  box-shadow:0 18px 46px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.18)!important;transform:translateZ(0);transition:transform .2s ease,filter .2s ease,box-shadow .2s ease!important
+}
+#dkd_market_categories_view [data-dkd-categories-action-card]>*{position:relative!important;z-index:3!important}
+#dkd_market_categories_view [data-dkd-categories-action-card]:before,.dkd_market_categories_view [data-dkd-categories-action-card]:before,[data-dkd-view="categories"] [data-dkd-categories-action-card]:before{
+  content:''!important;position:absolute!important;z-index:1!important;inset:0!important;pointer-events:none!important;opacity:.88!important;
+  background:linear-gradient(120deg,rgba(255,255,255,.04),rgba(255,255,255,.16),rgba(255,255,255,.04))!important;
+  transform:translateX(-120%) skewX(-14deg)!important;animation:dkd_categories_card_sheen_value 4.2s ease-in-out infinite!important
+}
+#dkd_market_categories_view [data-dkd-categories-action-card="dkd_urgent"],.dkd_market_categories_view [data-dkd-categories-action-card="dkd_urgent"]{
+  background:radial-gradient(circle at 16% 20%,rgba(255,231,109,.40),transparent 32%),
+  radial-gradient(circle at 88% 16%,rgba(255,111,190,.28),transparent 34%),linear-gradient(135deg,rgba(66,35,108,.96),rgba(9,42,66,.98))!important;
+  animation:dkd_categories_urgent_card_value 3.8s ease-in-out infinite!important
+}
+#dkd_market_categories_view [data-dkd-categories-action-card="dkd_cargo"],.dkd_market_categories_view [data-dkd-categories-action-card="dkd_cargo"]{
+  background:linear-gradient(90deg,rgba(126,255,229,.08) 1px,transparent 1px),linear-gradient(0deg,rgba(126,255,229,.06) 1px,transparent 1px),
+  radial-gradient(circle at 18% 20%,rgba(126,255,229,.24),transparent 34%),linear-gradient(135deg,rgba(18,51,90,.98),rgba(10,22,58,.98))!important;
+  background-size:18px 18px,18px 18px,auto,auto!important;animation:dkd_categories_cargo_card_value 4.4s ease-in-out infinite!important
+}
+#dkd_market_categories_view [data-dkd-categories-action-card="dkd_food"],.dkd_market_categories_view [data-dkd-categories-action-card="dkd_food"]{
+  background:radial-gradient(circle at 18% 18%,rgba(255,223,93,.34),transparent 34%),radial-gradient(circle at 88% 22%,rgba(255,135,79,.22),transparent 34%),
+  linear-gradient(135deg,rgba(45,45,93,.98),rgba(34,24,58,.98))!important;animation:dkd_categories_food_card_value 4.1s ease-in-out infinite!important
+}
+#dkd_market_categories_view [data-dkd-categories-action-card]:hover{transform:translateY(-3px) scale(1.012)!important;filter:saturate(1.14) brightness(1.05)!important}
+#dkd_market_categories_view .dkd_market_business_tabs,#dkd_market_categories_view .dkd_market_categories_tabs{border-radius:24px!important;padding:6px!important;background:rgba(255,255,255,.06)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.12)!important}
+#dkd_market_categories_view .dkd_market_product_card,#dkd_market_categories_view .dkd_market_store_card{border-radius:28px!important;background:radial-gradient(circle at 18% 10%,rgba(126,255,229,.09),transparent 30%),linear-gradient(180deg,rgba(17,33,78,.98),rgba(6,13,35,.99))!important;box-shadow:0 20px 50px rgba(0,0,0,.28)!important}
+@keyframes dkd_categories_premium_orbit_value{0%{transform:rotate(0) scale(1)}100%{transform:rotate(360deg) scale(1)}}@keyframes dkd_categories_premium_float_one_value{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(18px) translateX(-10px)}}@keyframes dkd_categories_premium_float_two_value{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-14px) translateX(8px)}}@keyframes dkd_categories_meter_value{0%,100%{transform:scaleY(.72);opacity:.70}50%{transform:scaleY(1.1);opacity:1}}@keyframes dkd_categories_card_sheen_value{0%,55%{transform:translateX(-120%) skewX(-14deg);opacity:0}70%{opacity:1}100%{transform:translateX(170%) skewX(-14deg);opacity:0}}@keyframes dkd_categories_urgent_card_value{0%,100%{box-shadow:0 18px 46px rgba(0,0,0,.28),0 0 0 rgba(255,111,190,0)}50%{box-shadow:0 22px 56px rgba(0,0,0,.34),0 0 28px rgba(255,111,190,.16)}}@keyframes dkd_categories_cargo_card_value{0%,100%{background-position:0 0,0 0,center,center}50%{background-position:10px 0,0 10px,center,center}}@keyframes dkd_categories_food_card_value{0%,100%{transform:translateZ(0) scale(1)}50%{transform:translateZ(0) scale(1.008)}}
+@media(max-width:720px){.dkd_market_categories_premium_top{border-radius:28px;padding:18px;margin:10px 0 16px}.dkd_market_categories_premium_head{grid-template-columns:1fr}.dkd_market_categories_premium_meter{display:none}.dkd_market_categories_premium_stats{grid-template-columns:1fr}.dkd_market_categories_premium_stats span{display:flex;align-items:center;justify-content:space-between}.dkd_market_categories_premium_stats small{margin-top:0}}
+@media(prefers-reduced-motion:reduce){.dkd_market_categories_premium_top:after,.dkd_market_categories_premium_glow,.dkd_market_categories_premium_meter span,#dkd_market_categories_view [data-dkd-categories-action-card],#dkd_market_categories_view [data-dkd-categories-action-card]:before{animation:none!important}}

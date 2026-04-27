@@ -1,0 +1,208 @@
+/* dkd_20260425: modern kategori sayfası + Kurye-Kargo seçim paneli */
+#dkd_market_categories_view {
+  background:
+    radial-gradient(circle at 12% 5%, rgba(126, 255, 229, 0.18), transparent 32%),
+    radial-gradient(circle at 95% 18%, rgba(255, 126, 199, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(5, 12, 32, 0.98), rgba(4, 9, 24, 0.99));
+}
+
+#dkd_market_categories_view .dkd_market_categories_switch {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px !important;
+  margin: 14px 0 18px !important;
+}
+
+#dkd_market_categories_view .dkd_market_categories_switch button,
+#dkd_market_categories_view .dkd_market_bridge_service_card {
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  border-radius: 24px !important;
+  min-height: 96px;
+  color: #fff !important;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(255, 226, 112, 0.28), transparent 34%),
+    radial-gradient(circle at 92% 12%, rgba(116, 255, 241, 0.22), transparent 34%),
+    linear-gradient(135deg, rgba(26, 40, 90, 0.96), rgba(12, 18, 52, 0.96)) !important;
+  box-shadow: 0 20px 46px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.18) !important;
+  transform: translateZ(0);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+#dkd_market_categories_view .dkd_market_categories_switch button:hover,
+#dkd_market_categories_view .dkd_market_bridge_service_card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(126, 255, 229, 0.40) !important;
+  box-shadow: 0 26px 56px rgba(0,0,0,0.34), 0 0 0 1px rgba(126,255,229,0.10) inset !important;
+}
+
+#dkd_market_categories_view .dkd_market_categories_result,
+#dkd_market_categories_view .dkd_market_category_cards,
+#dkd_market_categories_view .dkd_market_product_grid {
+  gap: 16px !important;
+}
+
+#dkd_market_categories_view .dkd_market_category_card,
+#dkd_market_categories_view .dkd_market_product_card,
+#dkd_market_categories_view .dkd_market_store_card {
+  border-radius: 26px !important;
+  border-color: rgba(255,255,255,0.14) !important;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(126, 255, 229, 0.11), transparent 30%),
+    linear-gradient(180deg, rgba(19, 33, 75, 0.96), rgba(8, 15, 37, 0.98)) !important;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.24) !important;
+  overflow: hidden;
+}
+
+.dkd_market_cargo_choice_sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: grid;
+  align-items: end;
+  pointer-events: auto;
+}
+
+.dkd_market_cargo_choice_backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 7, 22, 0.62);
+  backdrop-filter: blur(12px);
+}
+
+.dkd_market_cargo_choice_panel {
+  position: relative;
+  width: min(720px, calc(100% - 20px));
+  margin: 0 auto 14px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 30px;
+  padding: 14px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(255, 226, 112, 0.24), transparent 34%),
+    radial-gradient(circle at 92% 8%, rgba(116, 255, 241, 0.22), transparent 34%),
+    linear-gradient(180deg, rgba(17, 29, 66, 0.98), rgba(5, 10, 28, 0.98));
+  box-shadow: 0 -24px 70px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.16);
+}
+
+.dkd_market_cargo_choice_handle {
+  width: 54px;
+  height: 5px;
+  border-radius: 999px;
+  margin: 4px auto 16px;
+  background: rgba(255,255,255,0.28);
+}
+
+.dkd_market_cargo_choice_head {
+  padding: 0 6px 12px;
+}
+
+.dkd_market_cargo_choice_badge {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  color: #071221;
+  background: linear-gradient(135deg, #7effe5, #ffe270);
+  font-weight: 950;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.dkd_market_cargo_choice_head h3 {
+  margin: 0;
+  font-size: clamp(24px, 6vw, 34px);
+  line-height: 1.05;
+  font-weight: 1000;
+}
+
+.dkd_market_cargo_choice_head p {
+  margin: 9px 0 0;
+  color: rgba(235, 242, 255, 0.76);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.dkd_market_cargo_choice_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.dkd_market_cargo_choice_card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 24px;
+  padding: 16px;
+  text-align: left;
+  color: #fff;
+  background: rgba(255,255,255,0.07);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+.dkd_market_cargo_choice_card_urgent {
+  background:
+    radial-gradient(circle at 8% 15%, rgba(255, 126, 199, 0.20), transparent 34%),
+    linear-gradient(135deg, rgba(53, 34, 100, 0.92), rgba(8, 40, 62, 0.92));
+}
+
+.dkd_market_cargo_choice_card_cargo {
+  background:
+    radial-gradient(circle at 8% 15%, rgba(126, 255, 229, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(18, 45, 86, 0.94), rgba(12, 20, 54, 0.94));
+}
+
+.dkd_market_cargo_choice_icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 20px;
+  font-size: 27px;
+  background: linear-gradient(135deg, #7effe5, #ffe270 62%, #ff7ec7);
+  box-shadow: 0 14px 32px rgba(126,255,229,0.18);
+}
+
+.dkd_market_cargo_choice_card strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 1000;
+}
+
+.dkd_market_cargo_choice_card small {
+  display: block;
+  margin-top: 4px;
+  color: rgba(235, 242, 255, 0.74);
+  line-height: 1.35;
+}
+
+.dkd_market_cargo_choice_close {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 20px;
+  margin-top: 12px;
+  padding: 14px;
+  color: rgba(235, 242, 255, 0.84);
+  background: rgba(255,255,255,0.06);
+  font-weight: 900;
+}
+
+@media (min-width: 720px) {
+  .dkd_market_cargo_choice_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  #dkd_market_categories_view .dkd_market_categories_switch {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dkd_market_cargo_choice_panel {
+    border-radius: 28px 28px 24px 24px;
+  }
+}

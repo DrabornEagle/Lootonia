@@ -1,0 +1,66 @@
+/* dkd_web_profile_filter_label_polish_runtime_start */
+.dkd_market_filter_food_variety,
+.dkd_market_category_button[data-dkd-category="business"] {
+  gap: 7px !important;
+  border-color: rgba(116, 255, 218, 0.36) !important;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 224, 117, 0.23), transparent 34%),
+    linear-gradient(135deg, rgba(18, 118, 255, 0.42), rgba(82, 241, 205, 0.18)) !important;
+  box-shadow: 0 16px 38px rgba(32, 142, 255, 0.20), inset 0 1px 0 rgba(255,255,255,0.16) !important;
+}
+
+.dkd_market_filter_food_variety .dkd_market_category_icon,
+.dkd_market_category_button[data-dkd-category="business"] .dkd_market_category_icon {
+  width: 26px !important;
+  height: 26px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  color: #ffe77a !important;
+  filter: drop-shadow(0 0 12px rgba(255, 231, 122, 0.35));
+}
+
+.dkd_market_category_button[data-dkd-category="business_panel"] {
+  display: none !important;
+}
+
+.dkd_market_business_owner_button_panelim {
+  letter-spacing: -0.01em !important;
+  justify-content: center !important;
+}
+
+.dkd_market_categories_grid {
+  gap: 18px !important;
+}
+
+.dkd_market_categories_card {
+  border-radius: 28px !important;
+  border: 1px solid rgba(119, 226, 255, 0.22) !important;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(99, 231, 255, 0.18), transparent 34%),
+    radial-gradient(circle at 92% 8%, rgba(255, 213, 111, 0.14), transparent 31%),
+    linear-gradient(145deg, rgba(10, 25, 62, 0.98), rgba(5, 13, 32, 0.98)) !important;
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.10) !important;
+  overflow: hidden !important;
+}
+
+.dkd_market_categories_card_art {
+  border-radius: 24px !important;
+  overflow: hidden !important;
+}
+
+.dkd_market_categories_cash_price,
+.dkd_market_categories_price_stack .dkd_market_cash_price {
+  border-radius: 999px !important;
+  border: 1px solid rgba(255, 231, 142, 0.38) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 235, 155, 0.24), rgba(43, 118, 255, 0.22)),
+    rgba(13, 28, 64, 0.82) !important;
+  box-shadow: 0 12px 28px rgba(255, 219, 113, 0.13) !important;
+}
+
+.dkd_market_categories_card_button {
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, #4c7dff, #62f0d4) !important;
+  box-shadow: 0 14px 30px rgba(62, 137, 255, 0.25) !important;
+}
+/* dkd_web_profile_filter_label_polish_runtime_end */

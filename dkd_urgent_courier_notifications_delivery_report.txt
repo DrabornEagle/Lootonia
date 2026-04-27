@@ -1,0 +1,57 @@
+DKD Lootonia - Acil Kurye Bildirim + Çoklu Mağaza + Teslimat Akışı Raporu
+
+Tarih: 2026-04-26
+Aktif kaynak: projects/Lootonia
+Hazırlanan paket: Lootonia_DKD_AcilKurye_Notifications_Delivery_Update.zip
+
+Yapılan ana işler:
+1) Acil Kurye push bildirim altyapısı eklendi.
+   - Yeni Edge Function: supabase/functions/send-urgent-courier-alert/index.ts
+   - Yeni SQL hedefleme fonksiyonu: public.dkd_urgent_courier_push_targets_dkd
+   - Yeni audit tablosu: public.dkd_urgent_courier_push_audit
+   - Expo push tokenları mevcut public.dkd_push_tokens tablosundan okunur.
+
+2) Bildirim senaryoları bağlandı.
+   - Yeni Acil Kurye siparişi geldiğinde aktif kurye lisansı olan kullanıcılara bildirim gönderilir.
+   - Kurye görevi kabul edip taşıma ücretini gönderdiğinde müşteriye bildirim gönderilir.
+   - Sipariş iptal edilirse müşteri ve varsa atanmış kurye bildirim alır.
+   - Müşteri mesaj yazarsa kuryeye, kurye mesaj yazarsa müşteriye bildirim gönderilir.
+   - Canlı otomatik mesaj aksiyonları için bildirim tetiklenir.
+   - Ürün toplamı girildiğinde, fatura yüklendiğinde, ürünler teslim alınıp yola çıkıldığında ve teslimat tamamlandığında müşteriye bildirim gönderilir.
+
+3) Çoklu mağaza ürün toplamı ayrıldı.
+   - public.dkd_urgent_courier_order_items tablosuna dkd_product_total_tl eklendi.
+   - Yeni RPC: public.dkd_urgent_courier_set_item_totals_dkd
+   - Mobil ve web panelde her mağaza için ayrı TL girişi yapılır.
+   - Genel ürün toplamı mağaza toplamlarının toplamından otomatik hesaplanır.
+
+4) Fatura akışı düzeltildi.
+   - Fatura yüklendikten sonra buton metni Faturayı Düzenle olur.
+   - Mobilde fatura görseli uygulama içi Modal içinde açılır.
+   - Webde fatura görseli yeni sekme/data-url yerine sayfa içi modal içinde açılır; tarayıcı kapanma davranışı engellenir.
+
+5) Teslimat durum adımları eklendi.
+   - Yeni alanlar: dkd_items_picked_up_at, dkd_delivery_completed_at
+   - Yeni durum: dkd_on_the_way
+   - Yeni RPC: public.dkd_urgent_courier_pickup_items_dkd
+   - Yeni RPC: public.dkd_urgent_courier_complete_delivery_dkd
+   - Kurye fatura yükledikten sonra Ürünleri Teslim Aldım • Yola Çık adımını işaretler.
+   - Kurye müşteriye teslim ettikten sonra Teslim Ettim • Siparişi Tamamla adımını işaretler.
+
+Değiştirilen / eklenen dosyalar:
+- src/services/dkd_urgent_courier_service.js
+- src/features/courier/dkd_urgent_courier_panel.js
+- web_market/dkd_market_web_urgent_courier.js
+- web_market/dkd_market_web_urgent_courier.css
+- supabase/functions/send-urgent-courier-alert/index.ts
+- supabase/sql/dkd_20260426_lootonia_urgent_courier_notifications_store_totals_delivery.sql
+
+Kontroller:
+- node --check src/services/dkd_urgent_courier_service.js: OK
+- node --check web_market/dkd_market_web_urgent_courier.js: OK
+- RN JSX dosyası manuel akış/JSX kapanış kontrolünden geçirildi. Ortamda node_modules olmadığı için Expo lint çalıştırılamadı.
+- Yeni patch/backup klasörü oluşturulmadı.
+- Eski migration geçmişinde adında patch geçen dosyalar silinmedi; migration geçmişini kırmamak için korunmalı.
+
+DKD isimlendirme:
+- Yeni fonksiyonlar, servisler, değişkenler, SQL objeleri ve UI sınıfları dkd_ / dkd. standardıyla hazırlandı.

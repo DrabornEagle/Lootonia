@@ -1,0 +1,17 @@
+DKD Repo Cleanup Apply Summary
+Repository: /data/data/com.termux/files/home/projects/Lootonia
+Applied at: 2026-04-21T16:45:29.918Z
+
+DELETE README_TR.txt
+DELETE TERMUX_COMMANDS.txt
+DELETE Lootonia
+MOVE dkd_cleanup_audit_report.txt -> docs/archive/root_history/dkd_cleanup_audit_report.txt
+MOVE dkd_20260418_lootonia_courier_channel_counts_and_modern_job_card_report_TR.md -> docs/archive/root_history/dkd_20260418_lootonia_courier_channel_counts_and_modern_job_card_report_TR.md
+MOVE dkd_20260419_lootonia_courier_job_push_README_TR.txt -> docs/archive/root_history/dkd_20260419_lootonia_courier_job_push_README_TR.txt
+MOVE dkd_lootonia_supabase_hotfix_20260408.sql -> supabase/sql/archive/dkd_lootonia_supabase_hotfix_20260408.sql
+MOVE dkd_20260419_lootonia_courier_job_push_bridge.sql -> supabase/sql/archive/dkd_20260419_lootonia_courier_job_push_bridge.sql
+WRITE README.md
+WRITE README_TR.md
+WRITE docs/project/DKD_REPO_CLEANUP_2026-04-21_TR.md
+
+Total actions: 11

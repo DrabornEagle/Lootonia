@@ -1,0 +1,304 @@
+/* DKD Lootonia Web hızlı menü */
+.dkd_market_header_badges {
+  align-items: center;
+}
+
+.dkd_market_quick_menu_button {
+  width: 54px;
+  min-width: 54px;
+  height: 54px;
+  border: 1px solid rgba(138, 174, 255, 0.32);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(120, 255, 229, 0.38), transparent 34%),
+    linear-gradient(145deg, rgba(30, 65, 148, 0.96), rgba(8, 18, 48, 0.98));
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.17),
+    0 0 0 1px rgba(99, 205, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  cursor: pointer;
+  color: #f7fbff;
+  position: relative;
+  overflow: hidden;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dkd_market_quick_menu_button::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.11), transparent 52%, rgba(102, 232, 255, 0.12));
+  pointer-events: none;
+}
+
+.dkd_market_quick_menu_button:hover,
+.dkd_market_quick_menu_button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(128, 246, 226, 0.72);
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.38),
+    0 0 28px rgba(80, 225, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  outline: none;
+}
+
+.dkd_market_quick_menu_lines {
+  width: 25px;
+  display: grid;
+  gap: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.dkd_market_quick_menu_lines span {
+  display: block;
+  height: 3px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #ffffff, #8effe7, #7bb8ff);
+  box-shadow: 0 0 12px rgba(112, 247, 229, 0.35);
+}
+
+.dkd_market_quick_menu_lines span:nth-child(2) {
+  width: 19px;
+  justify-self: end;
+}
+
+.dkd_market_quick_menu_shell[hidden] {
+  display: none !important;
+}
+
+.dkd_market_quick_menu_shell {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+}
+
+.dkd_market_quick_menu_backdrop {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 14%, rgba(56, 148, 255, 0.22), transparent 28%),
+    rgba(1, 7, 24, 0.74);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.dkd_market_quick_menu_panel {
+  width: min(460px, 100%);
+  min-height: min(720px, 100%);
+  max-height: 100%;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(137, 184, 255, 0.26);
+  border-radius: 34px;
+  background:
+    linear-gradient(160deg, rgba(14, 32, 78, 0.98), rgba(3, 10, 31, 0.98)),
+    radial-gradient(circle at 20% 12%, rgba(111, 255, 230, 0.17), transparent 34%);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.62),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.dkd_market_quick_menu_head {
+  padding: 22px 22px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  border-bottom: 1px solid rgba(151, 190, 255, 0.13);
+  background:
+    radial-gradient(circle at 28% 0%, rgba(111, 255, 224, 0.18), transparent 38%),
+    linear-gradient(135deg, rgba(54, 113, 255, 0.16), transparent);
+}
+
+.dkd_market_quick_menu_kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(133, 255, 226, 0.14);
+  border: 1px solid rgba(133, 255, 226, 0.28);
+  color: #b9fff0;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dkd_market_quick_menu_title {
+  margin: 10px 0 0;
+  color: #ffffff;
+  font-size: clamp(26px, 7vw, 38px);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.dkd_market_quick_menu_text {
+  margin: 8px 0 0;
+  color: rgba(224, 234, 255, 0.72);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.dkd_market_quick_menu_close {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border: 1px solid rgba(156, 193, 255, 0.24);
+  border-radius: 18px;
+  background: rgba(25, 48, 102, 0.82);
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.dkd_market_quick_menu_body {
+  padding: 18px;
+  overflow: auto;
+  display: grid;
+  gap: 16px;
+}
+
+.dkd_market_quick_menu_list {
+  display: grid;
+  gap: 10px;
+}
+
+.dkd_market_quick_menu_item {
+  border: 1px solid rgba(146, 186, 255, 0.18);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(30, 65, 143, 0.74), rgba(12, 26, 68, 0.88));
+  padding: 14px 14px;
+  color: #f8fbff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dkd_market_quick_menu_item:hover,
+.dkd_market_quick_menu_item:focus-visible,
+.dkd_market_quick_menu_item.dkd_market_quick_menu_item_active {
+  border-color: rgba(122, 244, 224, 0.52);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(128, 255, 227, 0.2), transparent 36%),
+    linear-gradient(135deg, rgba(45, 104, 228, 0.82), rgba(12, 27, 72, 0.94));
+  outline: none;
+}
+
+.dkd_market_quick_menu_item_title {
+  display: block;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.dkd_market_quick_menu_item_arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: #9affec;
+  font-weight: 900;
+}
+
+.dkd_market_quick_menu_content {
+  border: 1px solid rgba(151, 190, 255, 0.18);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(255, 231, 154, 0.12), transparent 34%),
+    rgba(5, 15, 43, 0.82);
+  padding: 18px;
+  color: rgba(232, 239, 255, 0.82);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dkd_market_quick_menu_content h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 22px;
+  letter-spacing: -0.04em;
+}
+
+.dkd_market_quick_menu_content p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.58;
+}
+
+.dkd_market_quick_menu_content ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dkd_market_quick_menu_content strong {
+  color: #fff1b7;
+}
+
+@media (max-width: 720px) {
+  .dkd_market_quick_menu_button {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    border-radius: 18px;
+  }
+
+  .dkd_market_quick_menu_lines {
+    width: 22px;
+    gap: 4px;
+  }
+
+  .dkd_market_quick_menu_panel {
+    border-radius: 28px;
+  }
+}
+
+@media (max-width: 440px) {
+  .dkd_market_header_badges {
+    gap: 7px;
+  }
+
+  .dkd_market_quick_menu_button {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    border-radius: 16px;
+  }
+
+  .dkd_market_quick_menu_shell {
+    padding: 10px;
+  }
+
+  .dkd_market_quick_menu_head {
+    padding: 18px 18px 14px;
+  }
+
+  .dkd_market_quick_menu_body {
+    padding: 14px;
+  }
+}
