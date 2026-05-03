@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Lootonia Market</title>
+    <meta
+      name="description"
+      content="Lootonia Market web vitrini. Uygulama ve web aynı market omurgasını kullanır."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./dkd_market_web_profile_filter_label_polish.css" />
+    <link rel="stylesheet" href="./dkd_market_web_merchant_portal.css" />
+    <link rel="stylesheet" href="./dkd_market_web_quick_menu.css" />
+    <link rel="stylesheet" href="./dkd_market_web_header_polish.css" />
+    <link rel="stylesheet" href="./dkd_market_web_login_cargo.css" />
+    <link rel="stylesheet" href="./dkd_market_web_auth_temp_hide_register.css" />
+    <link rel="stylesheet" href="./dkd_market_web_urgent_courier.css" />
+      <link rel="stylesheet" href="./dkd_market_web_cargo_choice_bridge.css" />
+      <link rel="stylesheet" href="./dkd_market_filter_animations.css" />
+      <link rel="stylesheet" href="./dkd_market_three_filter_animations.css" />
+      <link rel="stylesheet" href="./dkd_market_all_urgent_filter_fix.css" />
+      <link rel="stylesheet" href="./dkd_market_categories_premium_top_ui.css" />
+      <link rel="stylesheet" href="./dkd_market_categories_premium_v2_icons.css" />
+      <link rel="stylesheet" href="./dkd_market_categories_cleanup_image_delivery.css" />
+  </head>
+  <body class="dkd_market_auth_locked">
+    <div class="dkd_market_shell">
+      <header class="dkd_market_header">
+        <div class="dkd_market_brand_block">
+          <div class="dkd_market_logo_tile" aria-hidden="true">
+            <span class="dkd_market_logo_hex"></span>
+            <span class="dkd_market_logo_core"></span>
+          </div>
+          <div>
+            <div class="dkd_market_brand_name">LOOTONIA</div>
+            <div class="dkd_market_brand_subname">- MARKET</div>
+          </div>
+        </div>
+
+        <div class="dkd_market_header_badges">
+          <div class="dkd_market_header_badge">
+            <span class="dkd_market_badge_icon dkd_market_badge_icon_shield" aria-hidden="true"></span>
+            <div>
+              <div class="dkd_market_badge_title">Güvenli</div>
+              <div class="dkd_market_badge_text">Alışveriş</div>
+            </div>
+          </div>
+          <button class="dkd_market_header_badge dkd_market_header_badge_button" data-dkd-open-support="true">
+            <span class="dkd_market_badge_icon dkd_market_badge_icon_headset" aria-hidden="true"></span>
+            <div>
+              <div class="dkd_market_badge_title">7/24</div>
+              <div class="dkd_market_badge_text">Destek</div>
+            </div>
+          </button>
+        </div>
+      </header>
+
+      <section class="dkd_market_wallet_strip" id="dkd_market_wallet_strip"></section>
+
+      <section class="dkd_market_home_view" id="dkd_market_home_view">
+        <section class="dkd_market_intro_section">
+          <label class="dkd_market_search_bar" for="dkd_market_search_input">
+            <span class="dkd_market_search_icon" aria-hidden="true"></span>
+            <input id="dkd_market_search_input" type="search" placeholder="Ürün veya işletme ara..." />
+          </label>
+
+          <nav class="dkd_market_category_row" id="dkd_market_category_row"></nav>
+        </section>
+
+
+        <div class="dkd_market_sections">
+        <section class="dkd_market_block" id="dkd_market_featured_block">
+          <div class="dkd_market_block_head">
+            <div class="dkd_market_block_title_group">
+              <div class="dkd_market_block_icon">★</div>
+              <h2>Öne Çıkanlar</h2>
+            </div>
+            <button class="dkd_market_link_button" data-dkd-nav-target="featured">Tümünü Gör</button>
+          </div>
+          <div class="dkd_market_featured_grid" id="dkd_market_featured_grid"></div>
+        </section>
+
+        <section class="dkd_market_block" id="dkd_market_business_block">
+          <div class="dkd_market_block_head">
+            <div class="dkd_market_block_title_group">
+              <div class="dkd_market_block_icon">🍽️</div>
+              <h2>Yemek Menüsü</h2>
+            </div>
+            <button class="dkd_market_link_button" data-dkd-nav-target="business">Tümünü Gör</button>
+          </div>
+          <div class="dkd_market_business_row" id="dkd_market_business_row"></div>
+        </section>
+
+
+        </div>
+      </section>
+
+      <section class="dkd_market_categories_view" id="dkd_market_categories_view" hidden>
+        <div class="dkd_market_categories_switch" id="dkd_market_categories_switch"></div>
+        <div class="dkd_market_business_filter_row" id="dkd_market_business_filter_row" hidden></div>
+        <div class="dkd_market_categories_result" id="dkd_market_categories_result"></div>
+      </section>
+
+      <section class="dkd_market_support_view" id="dkd_market_support_view" hidden>
+        <div class="dkd_market_support_head">
+          <div>
+            <div class="dkd_market_categories_kicker">Destek Merkezi</div>
+            <h2 class="dkd_market_categories_title">Mesaj Gönder</h2>
+            <p class="dkd_market_categories_text">Sorununu gönder. Mesaj draborneagle@gmail.com adresine iletilsin.</p>
+          </div>
+        </div>
+        <div class="dkd_market_support_shell">
+          <form class="dkd_market_support_form" id="dkd_market_support_form">
+            <div class="dkd_market_support_grid">
+              <label class="dkd_market_field_block">
+                <span>İsim Soyisim</span>
+                <input id="dkd_market_support_name" type="text" placeholder="Ad Soyad" autocomplete="name" required />
+              </label>
+              <label class="dkd_market_field_block">
+                <span>E-posta</span>
+                <input id="dkd_market_support_email" type="email" placeholder="ornek@mail.com" autocomplete="email" required />
+              </label>
+            </div>
+            <div class="dkd_market_support_grid">
+              <label class="dkd_market_field_block">
+                <span>Telefon</span>
+                <input id="dkd_market_support_phone" type="tel" placeholder="05xx xxx xx xx" autocomplete="tel" />
+              </label>
+              <label class="dkd_market_field_block">
+                <span>Konu</span>
+                <input id="dkd_market_support_subject" type="text" placeholder="Destek konusu" required />
+              </label>
+            </div>
+            <div class="dkd_market_support_grid">
+              <label class="dkd_market_field_block">
+                <span>Sipariş Numarası</span>
+                <input id="dkd_market_support_order_number" type="text" placeholder="Varsa sipariş numarasını gir" />
+              </label>
+              <label class="dkd_market_field_block dkd_market_support_file_block">
+                <span>Ekran Görüntüsü</span>
+                <input id="dkd_market_support_attachment" type="file" accept="image/png,image/jpeg,image/webp" />
+              </label>
+            </div>
+            <div class="dkd_market_support_file_preview" id="dkd_market_support_file_preview" hidden></div>
+            <label class="dkd_market_field_block">
+              <span>Mesaj</span>
+              <textarea id="dkd_market_support_message" class="dkd_market_support_textarea" placeholder="Sorununu veya isteğini yaz" required></textarea>
+            </label>
+            <div class="dkd_market_support_notice" id="dkd_market_support_notice">Gönderim için Supabase destek fonksiyonu kullanılır. Secret yoksa e-posta uygulaması açılır.</div>
+            <div class="dkd_market_support_action_row">
+              <button class="dkd_market_secondary_action" type="button" id="dkd_market_support_cancel_button">Vazgeç</button>
+              <button class="dkd_market_primary_action" type="submit" id="dkd_market_support_submit_button">Mesajı Gönder</button>
+            </div>
+          </form>
+          <section class="dkd_market_support_history_panel">
+            <div class="dkd_market_support_history_head">
+              <div>
+                <div class="dkd_market_categories_kicker">Destek Geçmişi</div>
+                <h3 class="dkd_market_support_history_title">Son Gönderimler</h3>
+              </div>
+              <button class="dkd_market_text_button" type="button" id="dkd_market_support_history_clear_button">Temizle</button>
+            </div>
+            <div class="dkd_market_support_history_list" id="dkd_market_support_history_list"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="dkd_market_drawer" id="dkd_market_cart_drawer" hidden>
+        <div class="dkd_market_drawer_backdrop" data-dkd-close-drawer="cart"></div>
+        <div class="dkd_market_drawer_panel">
+          <div class="dkd_market_drawer_head">
+            <h3>Sepetim</h3>
+            <button class="dkd_market_icon_button" data-dkd-close-drawer="cart">✕</button>
+          </div>
+          <div class="dkd_market_drawer_body" id="dkd_market_cart_items"></div>
+          <div class="dkd_market_drawer_footer">
+            <div class="dkd_market_cart_total_line">
+              <span>Toplam</span>
+              <strong id="dkd_market_cart_total">0</strong>
+            </div>
+            <button class="dkd_market_primary_action" id="dkd_market_checkout_button">Ödemeyi Tamamla</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="dkd_market_drawer" id="dkd_market_account_drawer" hidden>
+        <div class="dkd_market_drawer_backdrop" data-dkd-close-drawer="account"></div>
+        <div class="dkd_market_drawer_panel">
+          <div class="dkd_market_drawer_head">
+            <h3>Hesap ve Cüzdan</h3>
+            <button class="dkd_market_icon_button" data-dkd-close-drawer="account">✕</button>
+          </div>
+          <div class="dkd_market_drawer_body">
+            <div class="dkd_market_sync_notice" id="dkd_market_sync_notice">Hazırlanıyor…</div>
+            <div class="dkd_market_account_card" id="dkd_market_account_card"></div>
+            <form class="dkd_market_account_form" id="dkd_market_login_form">
+              <label class="dkd_market_field_block">
+                <span>E-posta</span>
+                <input id="dkd_market_login_email" type="email" placeholder="ornek@mail.com" autocomplete="email" />
+              </label>
+              <label class="dkd_market_field_block">
+                <span>Şifre</span>
+                <input id="dkd_market_login_password" type="password" placeholder="Şifre" autocomplete="current-password" />
+              </label>
+              <button class="dkd_market_primary_action" type="submit">Giriş Yap</button>
+              <button class="dkd_market_secondary_action dkd_market_register_action" type="button" id="dkd_market_account_register_button">Kayıt Ol</button>
+            </form>
+            <button class="dkd_market_secondary_action" id="dkd_market_sign_out_button" hidden>Çıkış Yap</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="dkd_market_drawer" id="dkd_market_detail_drawer" hidden>
+        <div class="dkd_market_drawer_backdrop" data-dkd-close-drawer="detail"></div>
+        <div class="dkd_market_drawer_panel dkd_market_detail_panel">
+          <div class="dkd_market_drawer_head">
+            <h3>Ürün Detayı</h3>
+            <button class="dkd_market_icon_button" data-dkd-close-drawer="detail">✕</button>
+          </div>
+          <div class="dkd_market_drawer_body" id="dkd_market_detail_body"></div>
+          <div class="dkd_market_drawer_footer dkd_market_detail_footer">
+            <button class="dkd_market_secondary_action" id="dkd_market_detail_add_button">Sepete Ekle</button>
+            <button class="dkd_market_primary_action" id="dkd_market_detail_buy_button">Hemen Al</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="dkd_market_drawer" id="dkd_market_payment_drawer" hidden>
+        <div class="dkd_market_drawer_backdrop" data-dkd-close-drawer="payment"></div>
+        <div class="dkd_market_drawer_panel dkd_market_payment_panel">
+          <div class="dkd_market_drawer_head">
+            <h3>Ödeme Yöntemi</h3>
+            <button class="dkd_market_icon_button" data-dkd-close-drawer="payment">✕</button>
+          </div>
+          <div class="dkd_market_drawer_body" id="dkd_market_payment_body"></div>
+          <div class="dkd_market_drawer_footer dkd_market_payment_footer">
+            <button class="dkd_market_secondary_action" id="dkd_market_payment_cancel_button">Vazgeç</button>
+            <button class="dkd_market_secondary_action dkd_market_card_pay_soon_action" id="dkd_market_payment_card_button">Kart ile Öde</button>
+            <button class="dkd_market_primary_action" id="dkd_market_payment_cash_button">Kapıda Nakit Öde</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="dkd_market_drawer" id="dkd_market_result_drawer" hidden>
+        <div class="dkd_market_drawer_backdrop" data-dkd-close-drawer="result"></div>
+        <div class="dkd_market_drawer_panel dkd_market_result_panel">
+          <div class="dkd_market_drawer_head">
+            <h3>Satın Alma Özeti</h3>
+            <button class="dkd_market_icon_button" data-dkd-close-drawer="result">✕</button>
+          </div>
+          <div class="dkd_market_drawer_body" id="dkd_market_result_body"></div>
+          <div class="dkd_market_drawer_footer dkd_market_result_footer">
+            <button class="dkd_market_secondary_action" id="dkd_market_result_secondary_button">Sepeti Gör</button>
+            <button class="dkd_market_primary_action" id="dkd_market_result_primary_button">Tamam</button>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="dkd_market_drawer" id="dkd_market_orders_drawer" hidden>
+        <div class="dkd_market_drawer_backdrop" data-dkd-close-drawer="orders"></div>
+        <div class="dkd_market_drawer_panel dkd_market_orders_panel">
+          <div class="dkd_market_drawer_head">
+            <h3>Sipariş Geçmişi</h3>
+            <button class="dkd_market_icon_button" data-dkd-close-drawer="orders">✕</button>
+          </div>
+          <div class="dkd_market_drawer_body" id="dkd_market_orders_body"></div>
+          <div class="dkd_market_drawer_footer dkd_market_orders_footer">
+            <button class="dkd_market_primary_action" id="dkd_market_orders_refresh_button">Yenile</button>
+          </div>
+        </div>
+      </section>
+
+      <nav class="dkd_market_bottom_nav">
+        <button class="dkd_market_bottom_button dkd_market_bottom_button_active" data-dkd-bottom-action="home">
+          <span class="dkd_market_bottom_icon dkd_market_bottom_icon_home" aria-hidden="true"></span>
+          <span>Ana Sayfa</span>
+        </button>
+        <button class="dkd_market_bottom_button" data-dkd-bottom-action="categories">
+          <span class="dkd_market_bottom_icon dkd_market_bottom_icon_grid" aria-hidden="true"></span>
+          <span>Kategoriler</span>
+        </button>
+        <button class="dkd_market_bottom_button" data-dkd-bottom-action="cart">
+          <span class="dkd_market_bottom_icon dkd_market_bottom_icon_cart" aria-hidden="true"></span>
+          <span>Sepet</span>
+          <span class="dkd_market_bottom_counter" id="dkd_market_bottom_counter">0</span>
+        </button>
+        <button class="dkd_market_bottom_button" data-dkd-bottom-action="account">
+          <span class="dkd_market_bottom_icon dkd_market_bottom_icon_user" aria-hidden="true"></span>
+          <span>Hesabım</span>
+        </button>
+      </nav>
+    </div>
+
+    <div class="dkd_market_toast" id="dkd_market_toast" hidden></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./dkd_market_web_config.js"></script>
+    <script src="./dkd_market_web.js"></script>
+    <script src="./dkd_urgent_courier_page_fix.js"></script>
+    <script src="./dkd_urgent_courier_stable_visibility_guard.js"></script>
+    <script src="./dkd_market_web_profile_filter_label_polish.js"></script>
+    <script src="./dkd_market_web_merchant_portal.js"></script>
+    <script src="./dkd_market_web_startup_guard.js"></script>
+    <script src="./dkd_market_web_login_cargo.js"></script>
+    <script src="./dkd_market_web_urgent_courier.js"></script>
+    <script src="./dkd_market_web_quick_menu.js"></script>
+    <script src="./dkd_market_web_header_polish.js"></script>
+    <!-- dkd_20260425_lootonia_web_profile_business_panel_sync.sql gerekli: profil + işletme paneli senkronu -->
+    <script src="./dkd_market_web_cargo_choice_bridge.js"></script>
+      <script src="./dkd_market_filter_label_bridge.js"></script>
+      <script src="./dkd_market_three_filter_animations.js"></script>
+      <script src="./dkd_market_all_urgent_filter_fix.js"></script>
+      <script src="./dkd_market_urgent_filter_rainbow_force.js"></script>
+      <script src="./dkd_market_categories_premium_top_ui.js"></script>
+      <script src="./dkd_market_categories_premium_v2_icons.js"></script>
+      <script src="./dkd_market_categories_cleanup_image_delivery.js"></script>
+  </body>
+</html>

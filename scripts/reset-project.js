@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+const fs=require('fs'); const path=require('path'); const root=process.cwd(); ['.expo','dist','web-build','.eslintcache'].forEach(dkd_temp_value=>{const dkd_payload=path.join(root,dkd_temp_value); if(fs.existsSync(dkd_payload)){fs.rmSync(dkd_payload,{recursive:true,force:true}); console.log('[OK] removed',dkd_temp_value)} else {console.log('[SKIP]',dkd_temp_value)}}); console.log('[INFO] node_modules korunuyor.');

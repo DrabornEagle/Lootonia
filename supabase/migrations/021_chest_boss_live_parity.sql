@@ -1,0 +1,66 @@
+-- Lootonia / Ankara
+-- Phase 24.5e - Chest/Boss live parity final migration
+-- Kaynak: canlıya elle uygulanmış chest/boss hotfix geçmişinin repo içinde kanonik hale getirilmiş final sürümü
+-- Not: Bu dosya, 021_chest_boss_live_parity_draft.sql üzerinden finalize edildi.
+-- Tarih: 20260314_062122
+
+-- Lootonia / Ankara
+-- Phase 24.5d - Chest/Boss live parity draft
+--
+-- Bu dosya CANLI ortamda tek tek uygulanmış chest/boss hotfix'lerini
+-- repo içinde kanonik hale getirmek için oluşturulan taslak migration'dır.
+--
+-- Bu aşamada bilinçli olarak "draft" bırakılır:
+-- 1) canlı DB'de düzeltilmiş akışı belgelemek,
+-- 2) yeni kurulumlar için tek referans SQL oluşturmak,
+-- 3) sonraki adımda kontrollü final migration'a çevirmek.
+--
+-- Final uygulama öncesi doğrulanacak başlıklar:
+-- - dkd_drop_codes tablo/kolon parity
+-- - manual code issue/open alignment
+-- - chest logs view/table compatibility
+-- - dkd__distance_meters helper parity
+-- - dkd_open_boss_chest_secure final signature/body parity
+--
+-- Bu dosya şu anda güvenli yorum/sınıflandırma iskeletidir.
+
+-- ============================================================
+-- SECTION A - manual code schema parity
+-- ============================================================
+-- Beklenen varlıklar:
+-- public.dkd_drop_codes(code, user_id, drop_id, expires_at, consumed_at, created_at)
+-- public.dkd_drops.current_code / current_code_expires_at veya manual_code compat alanları
+-- public.dkd_user_drops.last_opened_at
+
+-- ============================================================
+-- SECTION B - manual code RPC parity
+-- ============================================================
+-- Beklenen RPC'ler:
+-- public.dkd_issue_drop_code(...)
+-- public.dkd_open_chest_by_code(...)
+-- public.dkd_open_chest_secure(...)
+
+-- ============================================================
+-- SECTION C - chest history / logs compatibility
+-- ============================================================
+-- Beklenen davranış:
+-- dkd__log_chest_reward helper'ı, dkd_chest_logs view/table farkına rağmen
+-- güvenli şekilde dkd_chest_history'ye log bırakmalı.
+
+-- ============================================================
+-- SECTION D - boss parity
+-- ============================================================
+-- Beklenen yardımcılar:
+-- public.dkd__distance_meters(double precision, double precision, double precision, double precision)
+-- mixed-type overload'lar gerekiyorsa açıkça tanımlı olmalı.
+--
+-- Beklenen RPC:
+-- public.dkd_open_boss_chest_secure(uuid, integer, integer, integer, double precision, double precision)
+
+-- ============================================================
+-- SECTION E - final apply checklist
+-- ============================================================
+-- [ ] canlı DB probe sonuçları eklendi
+-- [ ] helper/function signature'ları tekilleştirildi
+-- [ ] raw debug patch'leri normal hata akışına döndürüldü
+-- [ ] manual hotfix ledger ile migration içerikleri eşitlendi

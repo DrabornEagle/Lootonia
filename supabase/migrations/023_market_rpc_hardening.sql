@@ -1,0 +1,92 @@
+-- Lootonia / Ankara
+-- Phase 24.10 - Market RPC Hardening Draft
+-- DRAFT ONLY - DO NOT APPLY DIRECTLY
+--
+-- Amaç:
+--   `dkd_market_list_card`, `dkd_market_cancel`, `dkd_market_buy`
+--   sözleşmesini ve korumalarını tek yerde tanımlamak.
+--
+-- Not:
+--   Bu dosya bilerek yorum ağırlıklıdır. Repo içinde kanonik plan olarak tutulur.
+--   Final uygulanabilir sürüm bir sonraki adımda `023_market_rpc_hardening.sql`
+--   olarak üretilecektir.
+
+-- =====================================================================
+-- SECTION A - VIEW / CONTRACT
+-- =====================================================================
+-- Beklenen view:
+--   public.dkd_market_listings_view
+-- Beklenen alanlar:
+--   id
+--   seller_id
+--   buyer_id
+--   user_card_id
+--   card_def_id         -- dkd_user_cards.card_def_id join'i ile türetilmeli
+--   price_token
+--   fee_token
+--   status
+--   created_at
+--   updated_at
+--   sold_at
+--   cancelled_at
+
+-- =====================================================================
+-- SECTION B - dkd_market_list_card guard list
+-- =====================================================================
+-- Beklenen kontroller:
+--   1. dkd_param_user_card_id gerçekten auth.uid() kullanıcısına ait olmalı
+--   2. Kart satılmış / devredilmiş / markette aktif ilanda olmamalı
+--   3. Aynı user_card_id için en fazla 1 aktif listing olmalı
+--   4. price_token > 0 olmalı
+--   5. fee_token deterministik hesaplanmalı
+-- Beklenen dönüş:
+--   ok=true + listing_id + status='active'
+
+-- Önerilen guard:
+--   create unique index ... on public.dkd_market_listings(user_card_id)
+--   where status = 'active' and cancelled_at is null and sold_at is null;
+
+-- =====================================================================
+-- SECTION C - dkd_market_cancel guard list
+-- =====================================================================
+-- Beklenen kontroller:
+--   1. Listing aktif olmalı
+--   2. İptal eden seller veya admin yetkili olmalı
+--   3. cancelled_at set edilmeli
+--   4. status = 'cancelled' olmalı
+-- Beklenen dönüş:
+--   ok=true + listing_id + status='cancelled'
+
+-- =====================================================================
+-- SECTION D - dkd_market_buy guard list
+-- =====================================================================
+-- Beklenen kontroller:
+--   1. Listing aktif olmalı
+--   2. Buyer seller ile aynı kullanıcı olmamalı
+--   3. Buyer token bakiyesi yeterli olmalı
+--   4. user_card halen seller'a ait olmalı
+--   5. Kart daha önce sold/cancelled olmamalı
+--   6. Token transferi transaction içinde yapılmalı
+--   7. user_card ownership buyer'a geçirilmeli
+--   8. listing.status='sold', buyer_id, sold_at set edilmeli
+-- Beklenen dönüş:
+--   ok=true + listing_id + buyer_id + seller_id + price_token + fee_token
+
+-- Önerilen transaction sırası:
+--   a) listing row FOR UPDATE
+-- dkd_alias_b) buyer profile FOR UPDATE
+--   c) seller profile FOR UPDATE
+--   d) user_card ownership doğrulama
+--   e) token düş / token ekle
+--   f) listing sold işaretle
+--   g) user_card owner değiştir
+
+-- =====================================================================
+-- SECTION E - LIVE PARITY CHECKLIST
+-- =====================================================================
+-- [ ] canlı `dkd_market_buy` body'si `todo_market_buy` dönmüyor
+-- [ ] view içinde card_def_id join ile türetiliyor
+-- [ ] user_card_id bazlı aktif listing guard var
+-- [ ] cancel RPC status/cancelled_at alanlarını yazıyor
+-- [ ] buy RPC transaction bazlı token transfer yapıyor
+-- [ ] buyer / seller / ownership zinciri doğrulanıyor

@@ -1,0 +1,68 @@
+/* dkd_20260425: kategori tekrar pencereleri kaldırma + ürün görseli ortalama + teslimat yazısı gizleme */
+
+/* Kategori merkezindeki alt tekrar eden 3 pencereyi gizle; üst premium alan kalır */
+#dkd_market_categories_view [data-dkd-categories-duplicate-action-hidden="true"],
+.dkd_market_categories_view [data-dkd-categories-duplicate-action-hidden="true"],
+[data-dkd-view="categories"] [data-dkd-categories-duplicate-action-hidden="true"] {
+  display: none !important;
+}
+
+/* Eğer eski action container class'ları JS'ten önce görünürse de ekstra güvenlik */
+#dkd_market_categories_view > .dkd_market_bridge_service_grid:not([data-dkd-categories-premium-v2-top="true"]),
+#dkd_market_categories_view > .dkd_market_categories_switch:not([data-dkd-categories-premium-v2-top="true"]) {
+  display: none !important;
+}
+
+/* Ürün görsellerini ortala */
+#dkd_market_categories_view [data-dkd-categories-product-image-wrap="true"],
+.dkd_market_categories_view [data-dkd-categories-product-image-wrap="true"],
+[data-dkd-view="categories"] [data-dkd-categories-product-image-wrap="true"] {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+#dkd_market_categories_view [data-dkd-categories-product-image-center="true"],
+.dkd_market_categories_view [data-dkd-categories-product-image-center="true"],
+[data-dkd-view="categories"] [data-dkd-categories-product-image-center="true"],
+#dkd_market_categories_view .dkd_market_product_card img,
+.dkd_market_categories_view .dkd_market_product_card img,
+[data-dkd-view="categories"] .dkd_market_product_card img {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  object-position: center center !important;
+  align-self: center !important;
+  justify-self: center !important;
+}
+
+/* Ürün görsellerinin kutu içinde dengeli durması */
+#dkd_market_categories_view .dkd_market_product_card [data-dkd-categories-product-image-wrap="true"],
+.dkd_market_categories_view .dkd_market_product_card [data-dkd-categories-product-image-wrap="true"],
+[data-dkd-view="categories"] .dkd_market_product_card [data-dkd-categories-product-image-wrap="true"] {
+  width: 100% !important;
+}
+
+/* İncele butonu üzerindeki Sıcak teslimat açık yazılarını kaldır */
+#dkd_market_categories_view [data-dkd-categories-delivery-text-hidden="true"],
+.dkd_market_categories_view [data-dkd-categories-delivery-text-hidden="true"],
+[data-dkd-view="categories"] [data-dkd-categories-delivery-text-hidden="true"] {
+  display: none !important;
+}
+
+/* Yazı kalkınca butonların boşluğu daha temiz dursun */
+#dkd_market_categories_view .dkd_market_product_card,
+.dkd_market_categories_view .dkd_market_product_card,
+[data-dkd-view="categories"] .dkd_market_product_card {
+  gap: 12px !important;
+}
+
+#dkd_market_categories_view .dkd_market_product_card button,
+.dkd_market_categories_view .dkd_market_product_card button,
+[data-dkd-view="categories"] .dkd_market_product_card button {
+  margin-top: 8px !important;
+}

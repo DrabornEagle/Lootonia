@@ -1,0 +1,1 @@
+Bu patch yalnızca arayüz güncellemesi içerir. Çalıştırılacak SQL dosyası yoktur.

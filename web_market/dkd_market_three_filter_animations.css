@@ -1,0 +1,229 @@
+/* dkd_20260425: Yemek Çeşitleri / Kargo Paneli / Acil Kurye özel animasyonları */
+
+#dkd_market_category_row [data-dkd-filter-special-animation],
+.dkd_market_category_row [data-dkd-filter-special-animation] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform: translateZ(0);
+  will-change: transform, box-shadow, filter;
+}
+
+#dkd_market_category_row [data-dkd-filter-special-animation] > *,
+.dkd_market_category_row [data-dkd-filter-special-animation] > * {
+  position: relative;
+  z-index: 3;
+}
+
+#dkd_market_category_row [data-dkd-filter-special-animation]::before,
+.dkd_market_category_row [data-dkd-filter-special-animation]::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: 0;
+  opacity: .95;
+  pointer-events: none;
+}
+
+#dkd_market_category_row [data-dkd-filter-special-animation]::after,
+.dkd_market_category_row [data-dkd-filter-special-animation]::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Yemek Çeşitleri: sıcak, iştah açıcı, lezzet haritası hissi */
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_food_variety"],
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_food_variety"] {
+  border-color: rgba(255, 211, 93, .46) !important;
+  color: #fff9e8 !important;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 217, 97, .42), transparent 34%),
+    radial-gradient(circle at 88% 24%, rgba(255, 126, 76, .26), transparent 34%),
+    linear-gradient(135deg, rgba(43, 61, 113, .96), rgba(35, 27, 70, .96)) !important;
+  box-shadow:
+    0 15px 34px rgba(0,0,0,.22),
+    0 0 0 1px rgba(255, 211, 93, .10) inset !important;
+  animation: dkd_food_filter_delicious_float_value 4.2s ease-in-out infinite;
+}
+
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_food_variety"]::before,
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_food_variety"]::before {
+  background:
+    conic-gradient(from 120deg at 16% 50%, rgba(255, 233, 117, .26), transparent 18%, rgba(255, 126, 76, .20), transparent 42%, rgba(125, 255, 213, .18), transparent 70%);
+  animation: dkd_food_filter_orbit_value 6.8s linear infinite;
+}
+
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_food_variety"]::after,
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_food_variety"]::after {
+  inset: auto 18px 10px auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(255, 232, 129, .88) 0 16%, transparent 17% 100%),
+    radial-gradient(circle at 24% 32%, rgba(255, 255, 255, .65), transparent 18%),
+    linear-gradient(135deg, rgba(255, 122, 88, .46), rgba(255, 221, 100, .48));
+  opacity: .42;
+  filter: blur(.2px);
+  animation: dkd_food_filter_bubble_value 3.2s ease-in-out infinite;
+}
+
+/* Kargo Paneli: teknoloji, panel, rota ve operasyon hissi */
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_cargo_panel"],
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_cargo_panel"] {
+  border-color: rgba(106, 190, 255, .48) !important;
+  color: #ecf7ff !important;
+  background:
+    linear-gradient(90deg, rgba(120, 248, 214, .11) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(120, 248, 214, .075) 1px, transparent 1px),
+    radial-gradient(circle at 18% 22%, rgba(113, 204, 255, .28), transparent 36%),
+    radial-gradient(circle at 88% 18%, rgba(127, 139, 255, .20), transparent 34%),
+    linear-gradient(135deg, rgba(24, 45, 91, .98), rgba(10, 22, 58, .98)) !important;
+  background-size:
+    18px 18px,
+    18px 18px,
+    auto,
+    auto,
+    auto !important;
+  box-shadow:
+    0 15px 34px rgba(0,0,0,.22),
+    0 0 0 1px rgba(106, 190, 255, .11) inset !important;
+  animation: dkd_cargo_filter_panel_scan_value 3.7s ease-in-out infinite;
+}
+
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_cargo_panel"]::before,
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_cargo_panel"]::before {
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent, rgba(126, 255, 229, .18), transparent);
+  transform: translateX(-130%);
+  animation: dkd_cargo_filter_scanner_value 2.9s ease-in-out infinite;
+}
+
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_cargo_panel"]::after,
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_cargo_panel"]::after {
+  right: 14px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #78f8d6;
+  box-shadow:
+    -18px 0 0 rgba(120, 248, 214, .55),
+    -36px 0 0 rgba(120, 248, 214, .28);
+  transform: translateY(-50%);
+  animation: dkd_cargo_filter_route_dots_value 1.45s ease-in-out infinite;
+}
+
+/* Acil Kurye: hızlı, neon, acil teslimat enerjisi */
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier"],
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier"] {
+  border-color: rgba(255, 113, 188, .48) !important;
+  color: #fff5fb !important;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(255, 229, 116, .35), transparent 32%),
+    radial-gradient(circle at 92% 20%, rgba(255, 113, 188, .30), transparent 35%),
+    radial-gradient(circle at 52% 120%, rgba(126, 255, 229, .18), transparent 42%),
+    linear-gradient(135deg, rgba(62, 34, 99, .98), rgba(9, 35, 62, .98)) !important;
+  box-shadow:
+    0 15px 34px rgba(0,0,0,.22),
+    0 0 0 1px rgba(255, 113, 188, .10) inset !important;
+  animation: dkd_urgent_filter_boost_value 2.85s cubic-bezier(.34, 1.56, .64, 1) infinite;
+}
+
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier"]::before,
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier"]::before {
+  inset: -40% auto -40% -65%;
+  width: 52%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
+  transform: rotate(14deg) translateX(-10%);
+  animation: dkd_urgent_filter_speed_line_value 2.2s ease-in-out infinite;
+}
+
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier"]::after,
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier"]::after {
+  right: 13px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ffe574;
+  box-shadow:
+    0 0 0 0 rgba(255, 229, 116, .36),
+    0 0 20px rgba(255, 113, 188, .45);
+  animation: dkd_urgent_filter_pulse_value 1.35s ease-out infinite;
+}
+
+/* Ortak hover/aktif güçlendirme */
+#dkd_market_category_row [data-dkd-filter-special-animation]:hover,
+.dkd_market_category_row [data-dkd-filter-special-animation]:hover,
+#dkd_market_category_row .dkd_market_category_button_active[data-dkd-filter-special-animation],
+.dkd_market_category_row .dkd_market_category_button_active[data-dkd-filter-special-animation] {
+  filter: saturate(1.18) brightness(1.05);
+  transform: translateY(-3px) scale(1.018);
+}
+
+/* Keyframes */
+@keyframes dkd_food_filter_delicious_float_value {
+  0%, 100% { transform: translateY(0) scale(1); }
+  45% { transform: translateY(-3px) scale(1.012); }
+  70% { transform: translateY(1px) scale(1.005); }
+}
+
+@keyframes dkd_food_filter_orbit_value {
+  0% { transform: rotate(0deg) scale(1.08); opacity: .70; }
+  50% { opacity: 1; }
+  100% { transform: rotate(360deg) scale(1.08); opacity: .70; }
+}
+
+@keyframes dkd_food_filter_bubble_value {
+  0%, 100% { transform: translateY(0) scale(.92); opacity: .34; }
+  50% { transform: translateY(-4px) scale(1.08); opacity: .56; }
+}
+
+@keyframes dkd_cargo_filter_panel_scan_value {
+  0%, 100% { transform: translateY(0); background-position: 0 0, 0 0, center, center, center; }
+  50% { transform: translateY(-2px); background-position: 10px 0, 0 10px, center, center, center; }
+}
+
+@keyframes dkd_cargo_filter_scanner_value {
+  0%, 42% { transform: translateX(-130%); opacity: 0; }
+  58% { opacity: 1; }
+  100% { transform: translateX(230%); opacity: 0; }
+}
+
+@keyframes dkd_cargo_filter_route_dots_value {
+  0%, 100% { opacity: .42; transform: translateY(-50%) scale(.86); }
+  50% { opacity: 1; transform: translateY(-50%) scale(1.18); }
+}
+
+@keyframes dkd_urgent_filter_boost_value {
+  0%, 100% { transform: translateX(0) scale(1); }
+  18% { transform: translateX(2px) scale(1.018); }
+  34% { transform: translateX(-1px) scale(1.008); }
+  58% { transform: translateX(0) scale(1.015); }
+}
+
+@keyframes dkd_urgent_filter_speed_line_value {
+  0%, 52% { transform: rotate(14deg) translateX(-20%); opacity: 0; }
+  68% { opacity: 1; }
+  100% { transform: rotate(14deg) translateX(360%); opacity: 0; }
+}
+
+@keyframes dkd_urgent_filter_pulse_value {
+  0% { box-shadow: 0 0 0 0 rgba(255, 229, 116, .38), 0 0 20px rgba(255, 113, 188, .45); }
+  100% { box-shadow: 0 0 0 18px rgba(255, 229, 116, 0), 0 0 28px rgba(255, 113, 188, .56); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #dkd_market_category_row [data-dkd-filter-special-animation],
+  .dkd_market_category_row [data-dkd-filter-special-animation],
+  #dkd_market_category_row [data-dkd-filter-special-animation]::before,
+  .dkd_market_category_row [data-dkd-filter-special-animation]::before,
+  #dkd_market_category_row [data-dkd-filter-special-animation]::after,
+  .dkd_market_category_row [data-dkd-filter-special-animation]::after {
+    animation: none !important;
+  }
+}

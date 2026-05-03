@@ -1,0 +1,5 @@
+/* dkd_20260430: Web giriş ekranında kayıt butonunu geçici gizleme */
+#dkd_market_auth_register_button,
+.dkd_market_auth_register_button#dkd_market_auth_register_button {
+  display: none !important;
+}

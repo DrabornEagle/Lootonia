@@ -1,0 +1,17 @@
+export const BOSS_QUESTIONS_V1 = [
+  { id: 'ank_01', q: "Ankara'nın plaka kodu kaçtır?", opts: ['34', '06', '16', '07'], dkd_answer_index: 1 },
+  { id: 'ank_02', q: "Ankara'da Atatürk'ün naaşının bulunduğu yer hangisidir?", opts: ['Anıtkabir', 'Atakule', 'Kızılay', 'Eymir Gölü'], dkd_answer_index: 0 },
+  { id: 'ank_03', q: "Ankara'nın merkez ilçelerinden biri hangisidir?", opts: ['Çankaya', 'Nilüfer', 'Konak', 'Kadıköy'], dkd_answer_index: 0 },
+  { id: 'ank_04', q: "Ankara'da “Kızılay” denince genelde ne kastedilir?", opts: ['Bir baraj', 'Bir meydan/merkez', 'Bir ilçe', 'Bir dağ'], dkd_answer_index: 1 },
+  { id: 'ank_05', q: "Ankara'nın simgelerinden biri olan Atakule hangi tür yapıdır?", opts: ['Kule', 'Stadyum', 'Köprü', 'Müze'], dkd_answer_index: 0 },
+  { id: 'ank_06', q: 'Ankara hangi bölgededir?', opts: ['Ege', 'Karadeniz', 'İç Anadolu', 'Akdeniz'], dkd_answer_index: 2 },
+  { id: 'ank_07', q: 'Ankara’da “TBMM” kısaltması neyi ifade eder?', opts: ['Bir üniversite', 'Türkiye Büyük Millet Meclisi', 'Bir müze', 'Bir spor kulübü'], dkd_answer_index: 1 },
+  { id: 'ank_08', q: 'Ankara’da “Gençlik Parkı” daha çok hangi amaçla bilinir?', opts: ['Sanayi bölgesi', 'Şehir parkı/eğlence', 'Dağ yürüyüşü', 'Liman'], dkd_answer_index: 1 },
+  { id: 'ank_09', q: 'Ankara’nın eski adı olarak bilinen “Angora” daha çok ne ile anılır?', opts: ['Kedi', 'Balık', 'Deve', 'At'], dkd_answer_index: 0 },
+  { id: 'ank_10', q: 'Ankara’da “ODTÜ” hangi kurumdur?', opts: ['Orta Doğu Teknik Üniversitesi', 'Bir alışveriş merkezi', 'Bir hastane', 'Bir müze'], dkd_answer_index: 0 },
+  { id: 'ank_11', q: 'Ankara’da Eymir hangi tür yerdir?', opts: ['Göl', 'Dağ', 'Ada', 'Kanyon'], dkd_answer_index: 0 },
+  { id: 'ank_12', q: 'Ankara’nın en bilinen kalesi hangisidir?', opts: ['Ankara Kalesi', 'Rumeli Hisarı', 'Bodrum Kalesi', 'Alanya Kalesi'], dkd_answer_index: 0 },
+  { id: 'ank_13', q: 'Ankara’da “Tunalı” denince genelde ne anlaşılır?', opts: ['Tunalı Hilmi Caddesi', 'Bir baraj', 'Bir havaalanı', 'Bir ada'], dkd_answer_index: 0 },
+  { id: 'ank_14', q: 'Ankara’nın futbol takımlarından biri hangisidir?', opts: ['Gençlerbirliği', 'Göztepe', 'Rizespor', 'Samsunspor'], dkd_answer_index: 0 },
+  { id: 'ank_15', q: 'Ankara’da “Çıkrıkçılar Yokuşu” daha çok hangi yerde bulunur?', opts: ['Kale çevresi', 'Havaalanı', 'Baraj', 'Stadyum'], dkd_answer_index: 0 },
+];

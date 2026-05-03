@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "662991941991",
+    "project_id": "draborneagle-lootonia",
+    "storage_bucket": "draborneagle-lootonia.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662991941991:android:ecd96f60875226d1a8bfc2",
+        "android_client_info": {
+          "package_name": "com.draborneagle.lootonia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBIKiD08EnYxA4tiBfkcpskdgIg2eDJ-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,183 @@
+/* dkd_20260425: Tümü aktif mavi glow kapatma + Acil Kurye yeni renk/animasyon */
+
+/* Tümü seçiliyken arkasındaki mavi ışığı kapat */
+#dkd_market_category_row [data-dkd-filter-fix-target="dkd_all_filter"],
+#dkd_market_category_row [data-dkd-category="all"],
+.dkd_market_category_row [data-dkd-filter-fix-target="dkd_all_filter"],
+.dkd_market_category_row [data-dkd-category="all"] {
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+#dkd_market_category_row [data-dkd-filter-fix-target="dkd_all_filter"].dkd_market_category_button_active,
+#dkd_market_category_row [data-dkd-category="all"].dkd_market_category_button_active,
+.dkd_market_category_row [data-dkd-filter-fix-target="dkd_all_filter"].dkd_market_category_button_active,
+.dkd_market_category_row [data-dkd-category="all"].dkd_market_category_button_active {
+  color: #f5f8ff !important;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255,255,255,0.10), transparent 34%),
+    linear-gradient(135deg, rgba(24, 35, 71, 0.96), rgba(10, 17, 44, 0.96)) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  filter: none !important;
+  animation: none !important;
+  transform: none !important;
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+#dkd_market_category_row [data-dkd-filter-fix-target="dkd_all_filter"].dkd_market_category_button_active::before,
+#dkd_market_category_row [data-dkd-filter-fix-target="dkd_all_filter"].dkd_market_category_button_active::after,
+#dkd_market_category_row [data-dkd-category="all"].dkd_market_category_button_active::before,
+#dkd_market_category_row [data-dkd-category="all"].dkd_market_category_button_active::after,
+.dkd_market_category_row [data-dkd-filter-fix-target="dkd_all_filter"].dkd_market_category_button_active::before,
+.dkd_market_category_row [data-dkd-filter-fix-target="dkd_all_filter"].dkd_market_category_button_active::after,
+.dkd_market_category_row [data-dkd-category="all"].dkd_market_category_button_active::before,
+.dkd_market_category_row [data-dkd-category="all"].dkd_market_category_button_active::after {
+  opacity: 0 !important;
+  display: none !important;
+  animation: none !important;
+}
+
+/* Acil Kurye v2: daha renkli, farklı, hızlı teslimat hissi */
+#dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"],
+#dkd_market_category_row [data-dkd-category="urgent_courier"],
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier_v2"],
+.dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"],
+.dkd_market_category_row [data-dkd-category="urgent_courier"],
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier_v2"] {
+  color: #fffaf4 !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(255, 241, 118, 0.55), transparent 30%),
+    radial-gradient(circle at 78% 18%, rgba(0, 245, 255, 0.34), transparent 34%),
+    radial-gradient(circle at 48% 115%, rgba(255, 77, 196, 0.38), transparent 42%),
+    linear-gradient(135deg, rgba(94, 25, 117, 0.98), rgba(11, 63, 89, 0.98) 52%, rgba(29, 34, 92, 0.98)) !important;
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.22),
+    0 0 0 1px rgba(255, 241, 118, 0.10) inset,
+    0 0 28px rgba(0, 245, 255, 0.10) !important;
+  animation: dkd_urgent_v2_delivery_bounce_value 3.15s cubic-bezier(.2, 1.4, .36, 1) infinite !important;
+}
+
+#dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"]::before,
+#dkd_market_category_row [data-dkd-category="urgent_courier"]::before,
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier_v2"]::before,
+.dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"]::before,
+.dkd_market_category_row [data-dkd-category="urgent_courier"]::before,
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier_v2"]::before {
+  content: '' !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  inset: -35% auto -35% -55% !important;
+  width: 48% !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  display: block !important;
+  background:
+    linear-gradient(90deg, transparent, rgba(255,255,255,0.34), rgba(255,241,118,0.26), transparent) !important;
+  transform: skewX(-18deg) translateX(-20%) !important;
+  animation: dkd_urgent_v2_color_sprint_value 2.45s ease-in-out infinite !important;
+}
+
+#dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"]::after,
+#dkd_market_category_row [data-dkd-category="urgent_courier"]::after,
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier_v2"]::after,
+.dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"]::after,
+.dkd_market_category_row [data-dkd-category="urgent_courier"]::after,
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier_v2"]::after {
+  content: '' !important;
+  position: absolute !important;
+  right: 12px !important;
+  top: 50% !important;
+  z-index: 1 !important;
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 999px !important;
+  pointer-events: none !important;
+  display: block !important;
+  background: #fff176 !important;
+  box-shadow:
+    -14px -8px 0 rgba(0, 245, 255, 0.80),
+    -28px 8px 0 rgba(255, 77, 196, 0.70),
+    0 0 18px rgba(255, 241, 118, 0.60) !important;
+  transform: translateY(-50%) scale(0.85) !important;
+  animation: dkd_urgent_v2_triple_ping_value 1.42s ease-in-out infinite !important;
+}
+
+#dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"]:hover,
+#dkd_market_category_row [data-dkd-category="urgent_courier"]:hover,
+#dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier_v2"]:hover,
+.dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"]:hover,
+.dkd_market_category_row [data-dkd-category="urgent_courier"]:hover,
+.dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier_v2"]:hover {
+  filter: saturate(1.25) brightness(1.06) !important;
+}
+
+@keyframes dkd_urgent_v2_delivery_bounce_value {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+    box-shadow:
+      0 16px 34px rgba(0, 0, 0, 0.22),
+      0 0 0 1px rgba(255, 241, 118, 0.10) inset,
+      0 0 28px rgba(0, 245, 255, 0.10);
+  }
+  22% {
+    transform: translateY(-3px) translateX(2px) scale(1.018);
+    box-shadow:
+      0 20px 44px rgba(0, 0, 0, 0.26),
+      0 0 0 1px rgba(255, 241, 118, 0.18) inset,
+      0 0 34px rgba(255, 77, 196, 0.16);
+  }
+  47% {
+    transform: translateY(1px) translateX(-1px) scale(1.006);
+  }
+  72% {
+    transform: translateY(-2px) translateX(0) scale(1.012);
+  }
+}
+
+@keyframes dkd_urgent_v2_color_sprint_value {
+  0%, 50% {
+    opacity: 0;
+    transform: skewX(-18deg) translateX(-30%);
+  }
+  64% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: skewX(-18deg) translateX(360%);
+  }
+}
+
+@keyframes dkd_urgent_v2_triple_ping_value {
+  0%, 100% {
+    opacity: 0.50;
+    transform: translateY(-50%) scale(0.82);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.18);
+  }
+  68% {
+    opacity: 0.72;
+    transform: translateY(-50%) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"],
+  #dkd_market_category_row [data-dkd-category="urgent_courier"],
+  #dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier_v2"],
+  #dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"]::before,
+  #dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"]::after,
+  .dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"],
+  .dkd_market_category_row [data-dkd-category="urgent_courier"],
+  .dkd_market_category_row [data-dkd-filter-special-animation="dkd_urgent_courier_v2"],
+  .dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"]::before,
+  .dkd_market_category_row [data-dkd-filter-fix-target="dkd_urgent_color_v2"]::after {
+    animation: none !important;
+  }
+}

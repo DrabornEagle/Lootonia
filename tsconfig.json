@@ -1,0 +1,35 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true
+  },
+  "include": [
+    "App.js",
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "supabase/functions/**",
+    "node_modules/**",
+    "web_market/**",
+    "dist/**",
+    "archive/**",
+    "_cleanup_archive/**",
+    "_cleanup_reports/**",
+    "_repo_hygiene_archive/**",
+    "audit/**",
+    "docs/**",
+    "dkd_lint_logs/**",
+    "dkd_lint_logs_after_fix/**"
+  ]
+}

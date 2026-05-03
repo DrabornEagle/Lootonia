@@ -1,0 +1,857 @@
+.dkd_market_urgent_courier_view {
+  padding: 0 0 104px;
+}
+
+.dkd_market_urgent_shell {
+  display: grid;
+  gap: 18px;
+}
+
+.dkd_market_urgent_hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255, 214, 102, .36), transparent 34%),
+    radial-gradient(circle at 82% 18%, rgba(255, 88, 166, .28), transparent 30%),
+    linear-gradient(135deg, rgba(31, 16, 72, .96), rgba(10, 22, 50, .94) 52%, rgba(8, 48, 55, .94));
+  box-shadow: 0 24px 70px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+.dkd_market_urgent_hero::after {
+  content: '';
+  position: absolute;
+  inset: auto -12% -52% 18%;
+  height: 150px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.dkd_market_urgent_hero_left {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.dkd_market_urgent_icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 auto;
+  border-radius: 26px;
+  color: #160a2d;
+  font-size: 34px;
+  background: linear-gradient(135deg, #ffe978, #ff78c7 52%, #6dfff4);
+  box-shadow: 0 18px 36px rgba(255, 104, 188, .32), inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+.dkd_market_urgent_kicker {
+  color: #aaf8ff;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.dkd_market_urgent_hero h2 {
+  margin: 4px 0 6px;
+  color: #fff;
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.dkd_market_urgent_hero p {
+  margin: 0;
+  max-width: 760px;
+  color: rgba(239, 248, 255, .78);
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.dkd_market_urgent_summary {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(112px, 1fr));
+  gap: 10px;
+  min-width: min(420px, 100%);
+}
+
+.dkd_market_urgent_summary div,
+.dkd_market_urgent_steps div,
+.dkd_market_urgent_money_grid div {
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 22px;
+  background: rgba(255,255,255,.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14);
+}
+
+.dkd_market_urgent_summary div {
+  padding: 14px;
+}
+
+.dkd_market_urgent_summary span,
+.dkd_market_urgent_money_grid small {
+  display: block;
+  color: rgba(233, 244, 255, .64);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.dkd_market_urgent_summary strong,
+.dkd_market_urgent_money_grid strong {
+  display: block;
+  margin-top: 5px;
+  color: #fff;
+  font-size: 17px;
+}
+
+.dkd_market_urgent_steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dkd_market_urgent_steps div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 12px;
+  padding: 14px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04)),
+    rgba(12, 18, 36, .84);
+}
+
+.dkd_market_urgent_steps span {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 14px;
+  color: #08111f;
+  font-weight: 1000;
+  background: linear-gradient(135deg, #7dfff4, #ffe16d);
+}
+
+.dkd_market_urgent_steps strong {
+  color: #fff;
+  font-weight: 950;
+}
+
+.dkd_market_urgent_steps small {
+  color: rgba(231, 242, 255, .66);
+  font-weight: 650;
+}
+
+.dkd_market_urgent_tabs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 0 2px;
+}
+
+.dkd_market_urgent_tab {
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;
+  padding: 12px 16px;
+  color: rgba(236, 246, 255, .76);
+  font-weight: 900;
+  white-space: nowrap;
+  background: rgba(255,255,255,.07);
+  cursor: pointer;
+}
+
+.dkd_market_urgent_tab_active {
+  color: #08111f;
+  background: linear-gradient(135deg, #ffe978, #7dfff4);
+  box-shadow: 0 14px 34px rgba(125, 255, 244, .18);
+}
+
+.dkd_market_urgent_panel,
+.dkd_market_urgent_form,
+.dkd_market_urgent_order_card {
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(13, 24, 48, .95), rgba(10, 14, 30, .96));
+  box-shadow: 0 22px 62px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.dkd_market_urgent_panel {
+  padding: 16px;
+}
+
+.dkd_market_urgent_form {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+.dkd_market_urgent_form_grid,
+.dkd_market_urgent_store_grid,
+.dkd_market_urgent_money_grid,
+.dkd_market_urgent_inline_form {
+  display: grid;
+  gap: 12px;
+}
+
+.dkd_market_urgent_form_grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dkd_market_urgent_field,
+.dkd_market_urgent_store_card,
+.dkd_market_urgent_invoice_upload,
+.dkd_market_urgent_chat_box {
+  display: grid;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 22px;
+  padding: 13px;
+  background: rgba(255,255,255,.06);
+}
+
+.dkd_market_urgent_field span,
+.dkd_market_urgent_invoice_upload label {
+  color: #bfefff;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.dkd_market_urgent_field input,
+.dkd_market_urgent_field textarea,
+.dkd_market_urgent_store_card textarea,
+.dkd_market_urgent_inline_form input,
+.dkd_market_urgent_chat_send input {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 17px;
+  padding: 12px 13px;
+  color: #fff;
+  outline: none;
+  background: rgba(2, 8, 18, .42);
+}
+
+.dkd_market_urgent_field textarea,
+.dkd_market_urgent_store_card textarea {
+  min-height: 86px;
+  resize: vertical;
+}
+
+.dkd_market_urgent_group {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 8% 0, rgba(255, 220, 105, .16), transparent 34%),
+    rgba(255,255,255,.045);
+}
+
+.dkd_market_urgent_group_head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.dkd_market_urgent_group_head span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.10);
+}
+
+.dkd_market_urgent_store_grid {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.dkd_market_urgent_store_check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-weight: 950;
+}
+
+.dkd_market_urgent_store_check input {
+  width: 19px;
+  height: 19px;
+  accent-color: #74fff1;
+}
+
+.dkd_market_urgent_action_row,
+.dkd_market_urgent_chat_send,
+.dkd_market_urgent_invoice_upload {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.dkd_market_urgent_primary,
+.dkd_market_urgent_ghost {
+  border: 0;
+  border-radius: 18px;
+  padding: 12px 15px;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.dkd_market_urgent_primary {
+  color: #101322;
+  background: linear-gradient(135deg, #ffe66e, #ff77c8 54%, #78fff2);
+  box-shadow: 0 15px 34px rgba(255, 119, 200, .24);
+}
+
+.dkd_market_urgent_ghost {
+  color: #eaf8ff;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.09);
+}
+
+.dkd_market_urgent_order_grid {
+  display: grid;
+  gap: 14px;
+}
+
+.dkd_market_urgent_order_card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.dkd_market_urgent_order_card_courier {
+  background:
+    radial-gradient(circle at 100% 0, rgba(118, 255, 242, .14), transparent 28%),
+    linear-gradient(180deg, rgba(13, 24, 48, .95), rgba(10, 14, 30, .96));
+}
+
+.dkd_market_urgent_order_head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.dkd_market_urgent_order_head h3 {
+  margin: 0 0 5px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.dkd_market_urgent_order_head small {
+  color: rgba(235, 245, 255, .65);
+  font-weight: 650;
+}
+
+.dkd_market_urgent_status {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 8px 11px;
+  color: #101322;
+  font-size: 12px;
+  font-weight: 1000;
+  background: linear-gradient(135deg, #8ffff5, #ffe977);
+}
+
+.dkd_market_urgent_items {
+  display: grid;
+  gap: 9px;
+}
+
+.dkd_market_urgent_item {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 18px;
+  background: rgba(255,255,255,.055);
+}
+
+.dkd_market_urgent_item strong {
+  color: #fff;
+}
+
+.dkd_market_urgent_item span,
+.dkd_market_urgent_notice,
+.dkd_market_urgent_empty_mini {
+  color: rgba(234, 246, 255, .72);
+  line-height: 1.45;
+}
+
+.dkd_market_urgent_money_grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dkd_market_urgent_money_grid div {
+  padding: 12px;
+}
+
+.dkd_market_urgent_notice {
+  border-left: 4px solid #ffe978;
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(255, 233, 120, .10);
+  font-weight: 700;
+}
+
+.dkd_market_urgent_inline_form {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.dkd_market_urgent_invoice {
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 16px;
+  padding: 12px;
+  color: #101322;
+  font-weight: 950;
+  text-decoration: none;
+  background: linear-gradient(135deg, #8ffff5, #ffe977);
+}
+
+.dkd_market_urgent_chat_box {
+  background: rgba(5, 12, 28, .38);
+}
+
+.dkd_market_urgent_chat_head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #fff;
+}
+
+.dkd_market_urgent_chat_head small {
+  color: #8ffff5;
+  font-weight: 900;
+}
+
+.dkd_market_urgent_message_list {
+  display: grid;
+  gap: 8px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.dkd_market_urgent_message {
+  display: grid;
+  gap: 3px;
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.07);
+}
+
+.dkd_market_urgent_message strong {
+  color: #ffe978;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.dkd_market_urgent_message span {
+  color: rgba(239,248,255,.84);
+}
+
+.dkd_market_urgent_chat_send {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.dkd_market_urgent_empty {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  padding: 26px;
+  border-radius: 24px;
+  color: rgba(236, 247, 255, .78);
+  text-align: center;
+  background: rgba(255,255,255,.06);
+}
+
+.dkd_market_urgent_empty strong {
+  color: #fff;
+  font-size: 19px;
+}
+
+@media (max-width: 820px) {
+  .dkd_market_urgent_hero,
+  .dkd_market_urgent_hero_left,
+  .dkd_market_urgent_order_head {
+    flex-direction: column;
+  }
+
+  .dkd_market_urgent_summary,
+  .dkd_market_urgent_steps,
+  .dkd_market_urgent_form_grid,
+  .dkd_market_urgent_money_grid,
+  .dkd_market_urgent_inline_form,
+  .dkd_market_urgent_chat_send {
+    grid-template-columns: 1fr;
+  }
+
+  .dkd_market_urgent_summary {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+
+/* dkd urgent courier premium refresh chat fix */
+.dkd_market_category_button[data-dkd-category="urgent_courier"] {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(255, 210, 94, .55);
+  color: #fff;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 229, 112, .42), transparent 34%),
+    radial-gradient(circle at 88% 28%, rgba(113, 255, 241, .34), transparent 30%),
+    linear-gradient(135deg, rgba(255, 89, 162, .28), rgba(22, 27, 63, .92));
+  box-shadow: 0 16px 36px rgba(255, 118, 197, .20), inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+.dkd_market_category_button[data-dkd-category="urgent_courier"]::after {
+  content: '';
+  position: absolute;
+  inset: -40% auto auto -22%;
+  width: 86px;
+  height: 86px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.14);
+  pointer-events: none;
+}
+
+.dkd_market_urgent_hero {
+  border-color: rgba(255, 226, 112, .28);
+  background:
+    radial-gradient(circle at 8% 8%, rgba(255, 225, 102, .45), transparent 28%),
+    radial-gradient(circle at 82% 12%, rgba(85, 255, 238, .35), transparent 32%),
+    radial-gradient(circle at 54% 110%, rgba(255, 82, 168, .26), transparent 42%),
+    linear-gradient(135deg, rgba(22, 12, 55, .98), rgba(10, 25, 64, .96) 48%, rgba(6, 46, 62, .95));
+}
+
+.dkd_market_urgent_icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 28px;
+  font-size: 39px;
+  background: linear-gradient(135deg, #ffe66e, #ff69bd 48%, #74fff1);
+  box-shadow: 0 20px 44px rgba(116,255,241,.18), 0 18px 38px rgba(255,105,189,.24), inset 0 1px 0 rgba(255,255,255,.62);
+}
+
+.dkd_market_urgent_panel {
+  background:
+    radial-gradient(circle at 0 0, rgba(116,255,241,.10), transparent 34%),
+    linear-gradient(180deg, rgba(14, 24, 52, .96), rgba(7, 12, 30, .98));
+}
+
+.dkd_market_urgent_tab_active {
+  color: #0b1020;
+  background: linear-gradient(135deg, #ffe66e, #ff79c8 55%, #74fff1);
+}
+
+.dkd_market_urgent_store_card {
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.dkd_market_urgent_store_card:focus-within,
+.dkd_market_urgent_store_card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(116,255,241,.38);
+  background: rgba(255,255,255,.085);
+}
+
+.dkd_market_urgent_chat_box {
+  border-color: rgba(116,255,241,.22);
+  background:
+    radial-gradient(circle at 0 0, rgba(116,255,241,.10), transparent 30%),
+    rgba(5, 12, 28, .52);
+}
+
+.dkd_market_urgent_message {
+  max-width: min(88%, 620px);
+  padding: 11px 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 10px 26px rgba(0,0,0,.16);
+}
+
+.dkd_market_urgent_message strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff;
+  font-size: 12px;
+  text-transform: none;
+}
+
+.dkd_market_urgent_message strong small {
+  margin-left: auto;
+  color: rgba(235,245,255,.54);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.dkd_market_urgent_message_avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.12);
+}
+
+.dkd_market_urgent_message_customer {
+  justify-self: start;
+  background: linear-gradient(135deg, rgba(116,255,241,.16), rgba(255,255,255,.065));
+}
+
+.dkd_market_urgent_message_courier {
+  justify-self: end;
+  background: linear-gradient(135deg, rgba(255,121,200,.18), rgba(255,230,110,.09));
+}
+
+.dkd_market_urgent_chat_send input {
+  min-height: 48px;
+  background: rgba(1, 7, 18, .58);
+}
+
+
+/* dkd urgent courier message avatar image fix */
+.dkd_market_urgent_courier_view { scroll-margin-top: 12px; }
+.dkd_market_urgent_message {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: end; gap: 10px;
+}
+.dkd_market_urgent_message_body { min-width: 0; }
+.dkd_market_urgent_message_avatar {
+  display: grid; place-items: center; width: 42px; height: 42px; overflow: hidden; flex: 0 0 auto;
+  border-radius: 16px; color: #061324; background: linear-gradient(135deg, #ffe978, #7dfff4 54%, #ff7bc7);
+  box-shadow: 0 14px 26px rgba(125,255,244,.16), inset 0 1px 0 rgba(255,255,255,.52);
+}
+.dkd_market_urgent_message_avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.dkd_market_urgent_message_avatar svg { width: 27px; height: 27px; }
+.dkd_market_urgent_message_courier { margin-left: auto; }
+.dkd_market_urgent_message_courier .dkd_market_urgent_message_avatar { order: 2; }
+.dkd_market_urgent_message_courier .dkd_market_urgent_message_body { order: 1; }
+.dkd_market_urgent_message_courier .dkd_market_urgent_message_body strong { justify-content: flex-end; }
+@media (max-width: 680px) {
+  .dkd_market_urgent_message, .dkd_market_urgent_message_courier { margin-left: 0; }
+  .dkd_market_urgent_message_courier .dkd_market_urgent_message_avatar,
+  .dkd_market_urgent_message_courier .dkd_market_urgent_message_body { order: initial; }
+  .dkd_market_urgent_message_courier .dkd_market_urgent_message_body strong { justify-content: flex-start; }
+}
+
+
+.dkd_market_urgent_danger {
+  border-color: rgba(255, 99, 132, 0.38) !important;
+  color: #ffe9ef !important;
+  background: linear-gradient(135deg, rgba(255, 71, 126, 0.22), rgba(255, 255, 255, 0.06)) !important;
+}
+
+.dkd_market_urgent_cancel_notice {
+  border-color: rgba(255, 202, 87, 0.26) !important;
+  background: rgba(255, 202, 87, 0.08) !important;
+}
+
+.dkd_market_urgent_item_total {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 6px;
+  border: 1px solid rgba(123, 255, 217, .22);
+  border-radius: 999px;
+  padding: 5px 9px;
+  color: #7bffd9;
+  background: rgba(123, 255, 217, .08);
+  font-weight: 950;
+  font-size: 11px;
+}
+
+.dkd_market_urgent_store_total_box {
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(123, 255, 217, .20);
+  border-radius: 22px;
+  padding: 13px;
+  background: linear-gradient(135deg, rgba(123, 255, 217, .10), rgba(140, 242, 255, .08));
+}
+
+.dkd_market_urgent_store_total_head {
+  color: #fff;
+  font-weight: 950;
+  letter-spacing: .02em;
+}
+
+.dkd_market_urgent_store_total_row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(96px, 140px);
+  gap: 10px;
+  align-items: center;
+}
+
+.dkd_market_urgent_store_total_copy {
+  display: grid;
+  gap: 4px;
+}
+
+.dkd_market_urgent_store_total_store {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.dkd_market_urgent_store_total_products {
+  color: rgba(231, 241, 255, .72);
+  font-size: 12px;
+}
+
+.dkd_market_urgent_store_total_row input {
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 16px;
+  padding: 11px 12px;
+  color: #fff;
+  outline: none;
+  background: rgba(2, 8, 18, .52);
+}
+
+button.dkd_market_urgent_invoice {
+  border: 0;
+  cursor: pointer;
+}
+
+.dkd_market_urgent_invoice_modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(2, 6, 16, .76);
+  backdrop-filter: blur(14px);
+}
+
+.dkd_market_urgent_invoice_modal[hidden] {
+  display: none !important;
+}
+
+.dkd_market_urgent_invoice_card {
+  width: min(760px, 96vw);
+  max-height: 92vh;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(14, 26, 54, .98), rgba(6, 12, 28, .98));
+  box-shadow: 0 26px 90px rgba(0,0,0,.42);
+}
+
+.dkd_market_urgent_invoice_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  color: #fff;
+  font-weight: 950;
+}
+
+.dkd_market_urgent_invoice_close {
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px;
+  padding: 9px 12px;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255,255,255,.08);
+}
+
+.dkd_market_urgent_invoice_image {
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  background: rgba(0,0,0,.28);
+}
+
+@media (max-width: 640px) {
+  .dkd_market_urgent_store_total_row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dkd_market_urgent_invoice_modal_card {
+  width: min(760px, 96vw);
+  max-height: 92vh;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(14, 26, 54, .98), rgba(6, 12, 28, .98));
+  box-shadow: 0 26px 90px rgba(0,0,0,.42);
+}
+
+.dkd_market_urgent_invoice_modal_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  color: #fff;
+  font-weight: 950;
+}
+
+.dkd_market_urgent_invoice_modal_head button {
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px;
+  padding: 9px 12px;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255,255,255,.08);
+}
+
+#dkd_market_urgent_invoice_modal_img {
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  background: rgba(0,0,0,.28);
+}
+
+.dkd_market_urgent_store_total_row > span {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.dkd_market_urgent_store_total_row > span strong {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.dkd_market_urgent_store_total_row > span small {
+  color: rgba(231, 241, 255, .72);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.dkd_market_urgent_store_total_head small {
+  display: block;
+  margin-top: 3px;
+  color: rgba(231, 241, 255, .66);
+  font-size: 11px;
+  font-weight: 800;
+}

@@ -1,0 +1,36 @@
+name: Quality Baseline
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      - name: Runtime hygiene scan
+        run: |
+          mkdir -p audit/ci_runtime_hygiene
+          node ./scripts/local/runtime-hygiene-scan.js ./audit/ci_runtime_hygiene
+
+      - name: Lint baseline (non-blocking)
+        run: npx eslint src App.js > audit/ci_runtime_hygiene/eslint_baseline.txt || true
+
+      - name: Upload audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-baseline-audit
+          path: audit/ci_runtime_hygiene

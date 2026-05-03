@@ -1,0 +1,5 @@
+[functions.send-courier-order-alert]
+verify_jwt = false
+
+[functions.send-push-event-bridge]
+verify_jwt = false
